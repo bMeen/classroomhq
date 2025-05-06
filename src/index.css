@@ -11,6 +11,41 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+
+  /* color: #fafafa; */
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+:root {
+  --primary: #161717; /* Blue-500 */
+  --primary-hover: #ffffff29; /* Blue-600 */
+}
+
+@layer base {
+  table {
+    @apply w-full border text-gray-900;
+  }
+
+  tr {
+    @apply cursor-pointer hover:bg-[#F9FAFB];
+  }
+
+  th,
+  td {
+    @apply p-4;
+  }
+
+  th {
+    @apply bg-primary text-left font-normal text-white;
+  }
 }
 
 /* #3B82F6 (Blue-500)	Trustworthy, great for buttons/headers
@@ -28,4 +63,12 @@ text-xl font-semibold for section headers
 text-base font-medium for content
 
 text-sm text-gray-500 for labels, muted text
+*/
+
+/* 
+secondary: "#FFE66D",
+        accent: "#6BCB77",
+        neutral: "#4D4C7D",
+        base100: "#F9F9F9",
+        info: "#3ABFF8",
 */
