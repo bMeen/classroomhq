@@ -1,12 +1,16 @@
 import {
+  ColumnDef,
   flexRender,
   getCoreRowModel,
   useReactTable,
 } from "@tanstack/react-table";
-import { columns } from "../features/attendance/columns";
-import { data } from "../data/attendance";
 
-function Table() {
+type TableProps<T> = {
+  columns: ColumnDef<T>[];
+  data: T[];
+};
+
+function DataTable<T>({ columns, data }: TableProps<T>) {
   const table = useReactTable({
     columns,
     data,
@@ -50,12 +54,4 @@ function Table() {
   );
 }
 
-export default Table;
-
-/* 
-<tr>
-  {row.getVisibleCells().map(cell => {
-    return <td key={cell.id}>{flexRender(cell.column.columnDef.cell, cell.getContext())}</td>
-  })}
-</tr>
-*/
+export default DataTable;

@@ -3,9 +3,13 @@ import { Attendance } from "../../types";
 
 export const columns: ColumnDef<Attendance>[] = [
   {
+    accessorKey: "sn",
+    header: "S/N",
+  },
+  /*   {
     accessorKey: "id",
     header: "ID",
-  },
+  }, */
   {
     accessorKey: "name",
     header: "Student Name",
@@ -21,5 +25,13 @@ export const columns: ColumnDef<Attendance>[] = [
   {
     accessorKey: "absent",
     header: "Absent",
+  },
+  {
+    accessorKey: "status",
+    header: "Status",
+  },
+  {
+    id: "actions",
+    enableHiding: false,
   },
 ];
