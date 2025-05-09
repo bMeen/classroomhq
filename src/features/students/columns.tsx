@@ -1,5 +1,6 @@
 import { ColumnDef } from "@tanstack/react-table";
 import { Student } from "../../types";
+import Actions from "./Actions";
 
 export const columns: ColumnDef<Student>[] = [
   {
@@ -14,10 +15,7 @@ export const columns: ColumnDef<Student>[] = [
     accessorKey: "guardianName",
     header: "Guardian",
   },
-  {
-    accessorKey: "guardianEmail",
-    header: "Phone Number",
-  },
+
   {
     accessorKey: "age",
     header: "Age",
@@ -25,9 +23,13 @@ export const columns: ColumnDef<Student>[] = [
   {
     accessorKey: "gender",
     header: "Gender",
+    cell: ({ getValue }) => {
+      const value = getValue<string>();
+      return <span className="capitalize">{value}</span>;
+    },
   },
   {
     id: "actions",
-    enableHiding: false,
+    cell: ({ row }) => <Actions id={row.original.id} />,
   },
 ];

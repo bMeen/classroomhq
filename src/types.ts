@@ -1,4 +1,4 @@
-import { ReactElement } from "react";
+import { Dispatch, ReactElement } from "react";
 
 export type Status = "present" | "late" | "absent";
 
@@ -39,3 +39,33 @@ export type Grade = {
   name: string;
   average_score: number;
 } & Record<Subject, number>;
+
+export type StudentsState = {
+  mockStudents: Student[];
+};
+
+export type AddAction = {
+  type: "add-student";
+  payload: Student;
+};
+export type RemoveAction = {
+  type: "remove-student";
+  payload: {
+    id: string;
+  };
+};
+
+export type ChangeStatusAction = {
+  type: "change-status";
+  payload: {
+    id: string;
+    status: Status;
+  };
+};
+
+export type Actions = AddAction | ChangeStatusAction | RemoveAction;
+
+export type StudentsContextType = {
+  state: StudentsState;
+  dispatch: Dispatch<Actions>;
+};

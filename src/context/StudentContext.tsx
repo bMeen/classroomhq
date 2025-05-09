@@ -1,21 +1,6 @@
-import { createContext, Dispatch, useContext, useReducer } from "react";
-import { Student } from "../types";
+import { createContext, useContext, useReducer } from "react";
+import { Actions, StudentsContextType, StudentsState } from "../types";
 import { mockStudents } from "../data/data";
-
-// types
-type StudentsState = {
-  mockStudents: Student[];
-};
-
-type addAction = {
-  type: "add-student";
-  payload: Student;
-};
-
-type StudentsContextType = {
-  state: StudentsState;
-  dispatch: Dispatch<addAction>;
-};
 
 const initialState: StudentsState = {
   mockStudents,
@@ -23,13 +8,52 @@ const initialState: StudentsState = {
 
 const studentsReducer = (
   state: StudentsState,
-  action: addAction,
+  action: Actions,
 ): StudentsState => {
   switch (action.type) {
     case "add-student":
       return {
         ...state,
         mockStudents: [...state.mockStudents, action.payload],
+      };
+    case "remove-student":
+      return {
+        ...state,
+        mockStudents: state.mockStudents.filter(
+          (student) => student.id !== action.payload.id,
+        ),
+      };
+    case "change-status":
+      return {
+        ...state,
+        mockStudents: state.mockStudents.map((student) => {
+          if (student.id !== action.payload.id) return student;
+
+          const prevStatus = student.status;
+          const newStatus = action.payload.status;
+
+          // If status is the same, do nothing
+          if (prevStatus === newStatus) return student;
+
+          const updatedAttendance = { ...student.attendance };
+
+          // Decrement previous status if exists
+          if (prevStatus) {
+            updatedAttendance[prevStatus] = Math.max(
+              0,
+              updatedAttendance[prevStatus] - 1,
+            );
+          }
+
+          // Increment new status
+          updatedAttendance[newStatus] += 1;
+
+          return {
+            ...student,
+            attendance: updatedAttendance,
+            status: newStatus,
+          };
+        }),
       };
 
     default:

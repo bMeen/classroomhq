@@ -1,15 +1,13 @@
 import { ColumnDef } from "@tanstack/react-table";
 import { Attendance } from "../../types";
+import CurrentStatus from "./CurrentStatus";
+import Actions from "./Actions";
 
 export const columns: ColumnDef<Attendance>[] = [
   {
     accessorKey: "sn",
     header: "S/N",
   },
-  /*   {
-    accessorKey: "id",
-    header: "ID",
-  }, */
   {
     accessorKey: "name",
     header: "Student Name",
@@ -29,9 +27,10 @@ export const columns: ColumnDef<Attendance>[] = [
   {
     accessorKey: "status",
     header: "Status",
+    cell: ({ row }) => <CurrentStatus status={row.original.status} />,
   },
   {
     id: "actions",
-    enableHiding: false,
+    cell: ({ row }) => <Actions id={row.original.id} />,
   },
 ];
