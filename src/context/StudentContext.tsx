@@ -1,6 +1,13 @@
 import { createContext, useContext, useReducer } from "react";
-import { Actions, StudentsContextType, StudentsState } from "../types";
+import {
+  Actions,
+  Attendance,
+  Grade,
+  StudentsContextType,
+  StudentsState,
+} from "../types";
 import { mockStudents } from "../data/data";
+import { getAverageScore } from "../lib/utils";
 
 const initialState: StudentsState = {
   mockStudents,
@@ -32,12 +39,10 @@ const studentsReducer = (
           const prevStatus = student.status;
           const newStatus = action.payload.status;
 
-          // If status is the same, do nothing
           if (prevStatus === newStatus) return student;
 
           const updatedAttendance = { ...student.attendance };
 
-          // Decrement previous status if exists
           if (prevStatus) {
             updatedAttendance[prevStatus] = Math.max(
               0,
@@ -45,7 +50,6 @@ const studentsReducer = (
             );
           }
 
-          // Increment new status
           updatedAttendance[newStatus] += 1;
 
           return {
@@ -54,6 +58,17 @@ const studentsReducer = (
             status: newStatus,
           };
         }),
+      };
+    case "new-subject":
+      return {
+        ...state,
+        mockStudents: state.mockStudents.map((student) => ({
+          ...student,
+          grades: {
+            ...student.grades,
+            [action.payload.subject]: 0,
+          },
+        })),
       };
 
     default:
@@ -68,8 +83,32 @@ const StudentsContext = createContext<StudentsContextType>(
 function StudentsProvider({ children }: { children: React.ReactNode }) {
   const [state, dispatch] = useReducer(studentsReducer, initialState);
 
+  const totalGrades: Grade[] = state.mockStudents.map((stud, index) => {
+    return {
+      sn: index + 1,
+      id: stud.id,
+      name: stud.fullName,
+      average_score: getAverageScore(Object.values(stud.grades)),
+      ...stud.grades,
+    };
+  });
+
+  const totalAttendance: Attendance[] = state.mockStudents.map(
+    (stud, index) => {
+      return {
+        sn: index + 1,
+        id: stud.id,
+        status: stud.status,
+        name: stud.fullName,
+        ...stud.attendance,
+      };
+    },
+  );
+
   return (
-    <StudentsContext.Provider value={{ state, dispatch }}>
+    <StudentsContext.Provider
+      value={{ state, dispatch, totalAttendance, totalGrades }}
+    >
       {children}
     </StudentsContext.Provider>
   );

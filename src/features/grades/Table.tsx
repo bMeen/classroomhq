@@ -1,23 +1,19 @@
 import DataTable from "../../components/DataTable";
 import { useStudentsContext } from "../../context/StudentContext";
-import { getAverageScore } from "../../lib/utils";
-import { Grade } from "../../types";
-import { columns } from "./columns";
+import { useCustomColumns } from "./columns";
+
+//import { columns } from "./columns";
 
 function Table() {
   const {
-    state: { mockStudents: data },
+    state: { mockStudents },
+    totalGrades,
   } = useStudentsContext();
 
-  const totalGrades: Grade[] = data.map((stud, index) => {
-    return {
-      sn: index + 1,
-      id: stud.id,
-      name: stud.fullName,
-      average_score: getAverageScore(Object.values(stud.grades)),
-      ...stud.grades,
-    };
-  });
+  const subjects = Object.keys(mockStudents[0].grades);
+  console.log(subjects, totalGrades);
+
+  const columns = useCustomColumns(subjects);
 
   return (
     <div>

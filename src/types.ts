@@ -6,6 +6,8 @@ export type Gender = "male" | "female";
 
 export type Subject = "Math" | "English" | "Science" | "History" | "Arts";
 
+export type DynamicSubject = Subject | string;
+
 export type NavItems = {
   icon: ReactElement;
   label: string;
@@ -22,7 +24,7 @@ export interface Student {
   guardianPhone: string;
   gender: Gender;
   status: Status | "";
-  grades: Record<Subject, number>;
+  grades: Record<DynamicSubject, number>;
   attendance: Record<Status, number>;
 }
 
@@ -33,22 +35,34 @@ export type Attendance = {
   name: string;
 } & Record<Status, number>;
 
-export type Grade = {
+/* export type Grade = {
   sn: number;
   id: string;
   name: string;
   average_score: number;
-} & Record<Subject, number>;
+} & Record<DynamicSubject, number>; */
+
+export type GradeInfo = {
+  sn: number;
+  id: string;
+  name: string;
+  average_score: number;
+};
+
+export type GradeScores = Record<DynamicSubject, number>;
+
+export type Grade = GradeInfo & GradeScores;
 
 export type StudentsState = {
   mockStudents: Student[];
 };
 
-export type AddAction = {
+export type AddStudentAction = {
   type: "add-student";
   payload: Student;
 };
-export type RemoveAction = {
+
+export type RemoveStudentAction = {
   type: "remove-student";
   payload: {
     id: string;
@@ -63,9 +77,22 @@ export type ChangeStatusAction = {
   };
 };
 
-export type Actions = AddAction | ChangeStatusAction | RemoveAction;
+export type AddNewSubject = {
+  type: "new-subject";
+  payload: {
+    subject: string;
+  };
+};
+
+export type Actions =
+  | AddStudentAction
+  | ChangeStatusAction
+  | RemoveStudentAction
+  | AddNewSubject;
 
 export type StudentsContextType = {
   state: StudentsState;
   dispatch: Dispatch<Actions>;
+  totalGrades: Grade[];
+  totalAttendance: Attendance[];
 };
