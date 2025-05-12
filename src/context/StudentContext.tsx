@@ -89,7 +89,7 @@ function StudentsProvider({ children }: { children: React.ReactNode }) {
       id: stud.id,
       name: stud.fullName,
       average_score: getAverageScore(Object.values(stud.grades)),
-      ...stud.grades,
+      grades: stud.grades,
     };
   });
 

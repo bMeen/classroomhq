@@ -8,6 +8,8 @@ export type Subject = "Math" | "English" | "Science" | "History" | "Arts";
 
 export type DynamicSubject = Subject | string;
 
+export type GradeScores = Record<DynamicSubject, number>;
+
 export type NavItems = {
   icon: ReactElement;
   label: string;
@@ -24,7 +26,7 @@ export interface Student {
   guardianPhone: string;
   gender: Gender;
   status: Status | "";
-  grades: Record<DynamicSubject, number>;
+  grades: GradeScores;
   attendance: Record<Status, number>;
 }
 
@@ -35,23 +37,13 @@ export type Attendance = {
   name: string;
 } & Record<Status, number>;
 
-/* export type Grade = {
+export type Grade = {
   sn: number;
   id: string;
   name: string;
   average_score: number;
-} & Record<DynamicSubject, number>; */
-
-export type GradeInfo = {
-  sn: number;
-  id: string;
-  name: string;
-  average_score: number;
+  grades: GradeScores;
 };
-
-export type GradeScores = Record<DynamicSubject, number>;
-
-export type Grade = GradeInfo & GradeScores;
 
 export type StudentsState = {
   mockStudents: Student[];

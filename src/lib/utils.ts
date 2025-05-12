@@ -7,5 +7,6 @@ export function getAge(date: string): number {
 export function getAverageScore(grades: number[]): number {
   const total = grades.reduce((sum, grade) => sum + grade, 0);
   const average = grades.length > 0 ? total / grades.length : 0;
-  return average;
+  return Number(average.toFixed(1));
+  //return average;
 }
