@@ -26,7 +26,7 @@ export function useCustomColumns(
     },
     {
       id: "actions",
-      cell: ({ row }) => (
+      cell: () => (
         <div>
           <UserPen className="text-blue-600" />
         </div>
