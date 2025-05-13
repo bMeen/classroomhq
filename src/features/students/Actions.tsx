@@ -1,14 +1,10 @@
 import { Eye, Trash2, UserPen } from "lucide-react";
-import { useStudentsContext } from "../../context/StudentContext";
 import { useNavigate } from "react-router-dom";
+import Modal from "../../components/Modal";
+import DeleteStudent from "./DeleteStudent";
 
 function Actions({ id }: { id: string }) {
-  const { dispatch } = useStudentsContext();
   const navigate = useNavigate();
-
-  const handleRemove = (id: string) => {
-    dispatch({ type: "remove-student", payload: { id } });
-  };
 
   return (
     <div className="flex gap-3">
@@ -18,11 +14,30 @@ function Actions({ id }: { id: string }) {
       <div>
         <UserPen className="text-blue-600" />
       </div>
-      <div onClick={() => handleRemove(id)}>
-        <Trash2 className="text-red-600" />
+
+      <div>
+        <Modal>
+          <Modal.Open opens="delete">
+            <Trash2 className="text-red-600" />
+          </Modal.Open>
+          <Modal.Window name="delete">
+            <DeleteStudent id={id} />
+          </Modal.Window>
+        </Modal>
       </div>
     </div>
   );
 }
 
 export default Actions;
+/* 
+<Modal>
+        <Modal.Open opens="cabin-form">
+          <Button>Add new cabin</Button>
+        </Modal.Open>
+        <Modal.Window name="cabin-form">
+          <CreateCabinForm />
+        </Modal.Window>
+      </Modal>
+
+*/

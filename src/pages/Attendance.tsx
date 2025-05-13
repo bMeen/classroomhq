@@ -14,21 +14,6 @@ function Attendance() {
       />
 
       <Table />
-
-      {/*  <div className="flex flex-col gap-0.5 text-sm font-bold">
-        <span className="hover:bg-color-present inline-block rounded-sm p-1 hover:text-white">
-          <CheckCircle />
-          Present
-        </span>
-        <span className="hover:bg-color-late inline-block rounded-sm p-1 hover:text-white">
-          <Clock />
-          Late
-        </span>
-        <span className="hover:bg-color-absent inline-block rounded-sm p-1 hover:text-white">
-          <XCircle />
-          Absent
-        </span>
-      </div> */}
     </>
   );
 }

@@ -88,3 +88,19 @@ export type StudentsContextType = {
   totalGrades: Grade[];
   totalAttendance: Attendance[];
 };
+
+export type ModalCOntextType = {
+  openName: string;
+  close: () => void;
+  open: (name: string) => void;
+};
+
+export type FormValues = {
+  fullName: string;
+  dateOfBirth: string;
+  gender: string;
+  address: string;
+  guardianName: string;
+  guardianEmail: string;
+  guardianPhone: string;
+};

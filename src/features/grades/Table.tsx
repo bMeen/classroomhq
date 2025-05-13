@@ -11,7 +11,6 @@ function Table() {
   } = useStudentsContext();
 
   const subjects = Object.keys(mockStudents[0].grades);
-  console.log(subjects, totalGrades);
 
   const columns = useCustomColumns(subjects);
 
