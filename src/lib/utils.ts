@@ -1,4 +1,5 @@
 import { differenceInYears, parseISO } from "date-fns";
+import { Student } from "../types";
 
 export function getAge(date: string): number {
   return differenceInYears(new Date(), parseISO(date));
@@ -10,3 +11,8 @@ export function getAverageScore(grades: number[]): number {
   return Number(average.toFixed(1));
   //return average;
 }
+
+export const generateStudentId = (students: Student[]) => {
+  const nextNumber = students.length + 1;
+  return `stud${String(nextNumber).padStart(3, "0")}`;
+};

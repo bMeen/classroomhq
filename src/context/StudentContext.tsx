@@ -23,6 +23,7 @@ const studentsReducer = (
         ...state,
         mockStudents: [...state.mockStudents, action.payload],
       };
+
     case "remove-student":
       return {
         ...state,

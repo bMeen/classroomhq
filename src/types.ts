@@ -1,3 +1,5 @@
+import * as yup from "yup";
+
 import { Dispatch, ReactElement } from "react";
 
 export type Status = "present" | "late" | "absent";
@@ -95,7 +97,7 @@ export type ModalCOntextType = {
   open: (name: string) => void;
 };
 
-export type FormValues = {
+/* export type FormValues = {
   fullName: string;
   dateOfBirth: string;
   gender: string;
@@ -103,4 +105,15 @@ export type FormValues = {
   guardianName: string;
   guardianEmail: string;
   guardianPhone: string;
-};
+}; */
+export type FormValues = yup.InferType<typeof schema>;
+
+export const schema = yup.object({
+  fullName: yup.string().required(),
+  dateOfBirth: yup.string().required(),
+  gender: yup.mixed<Gender>().oneOf(["male", "female"]).required(),
+  address: yup.string().required(),
+  guardianName: yup.string().required(),
+  guardianEmail: yup.string().email("Provide a valide email").required(),
+  guardianPhone: yup.string().required(),
+});

@@ -39,8 +39,10 @@
   background-color: #fff;
   border-radius: 9px;
   box-shadow: var(--shadow-md);
-  padding: 1rem 3rem;
+  padding: 1rem 2rem;
   transition: all 0.5s;
+  max-height: 400px;
+  overflow-y: scroll;
 }
 
 .overlay {
@@ -78,7 +80,7 @@
   }
 
   input {
-    @apply rounded-full border-[1px] border-gray-500 bg-white px-3 py-2 text-sm focus:outline-none focus:ring-0 md:text-base;
+    @apply rounded-xl border-[1px] border-gray-500 bg-white px-3 py-2 text-sm focus:outline-none focus:ring-0 md:text-base;
   }
 }
 

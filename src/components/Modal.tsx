@@ -49,8 +49,12 @@ function Window({
 
   return createPortal(
     <div className="overlay">
-      <div className="modal" ref={ref} onClick={(e) => e.target}>
-        <button onClick={close} className="border">
+      <div
+        className="modal flex flex-col items-end gap-2"
+        ref={ref}
+        onClick={(e) => e.target}
+      >
+        <button onClick={close}>
           <X />
         </button>
 

@@ -1,3 +1,4 @@
+import Button from "../../components/Button";
 import { useStudentsContext } from "../../context/StudentContext";
 
 function DeleteStudent({
@@ -15,13 +16,17 @@ function DeleteStudent({
   };
 
   return (
-    <div className="border">
-      <h3>Delete?</h3>
-      <p>Are you sure you want to delete this student</p>
+    <div className="text-slate-500">
+      <h3 className="text-lg font-medium md:text-xl">Delete</h3>
+      <p className="text-sm">Are you sure you want to delete this student?</p>
 
-      <div>
-        <button onClick={() => onCloseModal?.()}>Cancel</button>
-        <button onClick={handleRemove}>Delete</button>
+      <div className="mt-5 flex justify-end gap-3 lg:mt-10">
+        <Button type="outline" onClick={() => onCloseModal?.()}>
+          Cancel
+        </Button>
+        <Button type="danger" onClick={handleRemove}>
+          Delete
+        </Button>
       </div>
     </div>
   );
