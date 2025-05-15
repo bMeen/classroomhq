@@ -1,6 +1,6 @@
+import Button from "../../components/Button";
 import { useStudentsContext } from "../../context/StudentContext";
 import { Status } from "../../types";
-import Button from "./Button";
 
 type ActionType = {
   type: Status;
@@ -30,6 +30,7 @@ function Actions({ id }: { id: string }) {
       {ActionTypes.map((action) => {
         return (
           <Button
+            type="action"
             key={action.type}
             className={`capitalize ${action.class}`}
             onClick={() =>

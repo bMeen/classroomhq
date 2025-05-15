@@ -1,5 +1,5 @@
 import SubHeading from "../components/SubHeading";
-import AddNewGrade from "../features/grades/AddNewGrade";
+import AddNewSubject from "../features/grades/AddNewGrade";
 
 import Table from "../features/grades/Table";
 
@@ -11,7 +11,7 @@ function Grades() {
         paragraph="Record, view, and analyze grades across all subjects. This section helps you evaluate student progress, identify trends, and support academic success with clear performance data."
       />
 
-      <AddNewGrade />
+      <AddNewSubject />
 
       <Table />
     </div>

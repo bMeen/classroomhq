@@ -1,44 +1,77 @@
 import { useForm } from "react-hook-form";
-import { FormValues, GradeScores, schema, Status } from "../../types";
+import { FormValues, Gender, GradeScores, schema, Status } from "../../types";
 import FormInput from "../../ui/FormInput";
 import FormRow from "../../ui/FormRow";
 import Button from "../../components/Button";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useStudentsContext } from "../../context/StudentContext";
 import { generateStudentId } from "../../lib/utils";
+import { useNavigate } from "react-router-dom";
 
 function StudentForm({
+  id,
   onCloseModal,
 }: {
   id?: string;
   onCloseModal?: () => void;
 }) {
+  const navigate = useNavigate();
   const { state, dispatch } = useStudentsContext();
-  const { register, handleSubmit, reset, formState } = useForm<FormValues>({
-    resolver: yupResolver(schema),
-    defaultValues: {},
-  });
-  const { errors } = formState;
+
+  const isEditSession = Boolean(id);
+
+  const currentStudent = state.mockStudents.find(
+    (student) => student.id === id,
+  );
+
+  const editValues = {
+    fullName: currentStudent?.fullName,
+    dateOfBirth: currentStudent?.dateOfBirth,
+    gender: currentStudent?.gender as Gender,
+    address: currentStudent?.address,
+    guardianName: currentStudent?.guardianName,
+    guardianEmail: currentStudent?.guardianEmail,
+    guardianPhone: currentStudent?.guardianPhone,
+  };
+
+  const { register, handleSubmit, reset, formState, getValues } =
+    useForm<FormValues>({
+      resolver: yupResolver(schema),
+      defaultValues: isEditSession ? editValues : {},
+    });
+  const { errors, dirtyFields } = formState;
 
   const onSubmit = (data: FormValues) => {
-    const id = generateStudentId(state.mockStudents);
-    const status = "present" as Status;
-    const attendance = { present: 0, late: 0, absent: 0 };
-    const subjects = Object.keys(state.mockStudents[0].grades);
-    const grades = subjects.reduce((acc, subject) => {
-      acc[subject] = 0;
-      return acc;
-    }, {} as GradeScores);
-    const newStudent = { ...data, id, status, attendance, grades };
-    console.log("Form Submitted", newStudent);
-    dispatch({ type: "add-student", payload: newStudent });
+    const values = getValues();
+    if (isEditSession) {
+      const updates = Object.keys(dirtyFields).reduce((acc, key) => {
+        const typedKey = key as keyof FormValues;
+        acc[typedKey] = values[typedKey];
+        return acc;
+      }, {} as Partial<FormValues>);
+
+      navigate(`/student/${id}`);
+      dispatch({ type: "update-student", payload: { id: id!, updates } });
+    } else {
+      const id = generateStudentId(state.mockStudents);
+      const status = "present" as Status;
+      const attendance = { present: 0, late: 0, absent: 0 };
+      const subjects = Object.keys(state.mockStudents[0].grades);
+      const grades = subjects.reduce((acc, subject) => {
+        acc[subject] = 0;
+        return acc;
+      }, {} as GradeScores);
+      const newStudent = { ...data, id, status, attendance, grades };
+      dispatch({ type: "add-student", payload: newStudent });
+      reset();
+      navigate(`/student/${id}`);
+    }
     onCloseModal?.();
-    reset();
   };
 
   return (
     <form className="mt-4" onSubmit={handleSubmit(onSubmit)}>
-      <div className="w-full max-w-lg space-y-5">
+      <div className="space-y-5">
         <FormRow>
           <FormInput
             id="fullName"
@@ -58,12 +91,20 @@ function StudentForm({
               type="text"
               id="date-of-birth"
               {...register("dateOfBirth")}
+              placeholder="YYYY-MM-DD"
             />
           </FormInput>
         </FormRow>
         <FormRow>
           <FormInput id="gender" label="Gender" error={errors.gender?.message}>
-            <input type="text" id="gender" {...register("gender")} />
+            <input
+              type="text"
+              id="gender"
+              className="capitalize"
+              {...register("gender", {
+                setValueAs: (value) => (value ? value.toLowerCase() : value),
+              })}
+            />
           </FormInput>
         </FormRow>
         <FormRow>
@@ -120,7 +161,11 @@ function StudentForm({
         <Button type="outline" onClick={() => onCloseModal?.()}>
           Cancel
         </Button>
-        <Button type="success">Add</Button>
+        {isEditSession ? (
+          <Button>Update</Button>
+        ) : (
+          <Button type="success">Add</Button>
+        )}
       </div>
     </form>
   );

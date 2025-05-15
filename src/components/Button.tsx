@@ -1,4 +1,4 @@
-type ButtonType = "default" | "success" | "danger" | "outline";
+type ButtonType = "default" | "success" | "danger" | "outline" | "action";
 
 type ButtonProps = {
   type?: ButtonType;
@@ -7,19 +7,22 @@ type ButtonProps = {
   onClick?: () => void;
 };
 
-const base = "flex rounded-xl py-2 px-4 text-sm font-medium items-center gap-2";
+const base = "flex py-2 px-4 text-sm font-medium items-center gap-2";
 
 const styles = {
   default:
     base +
-    " bg-black text-white border-[1px] border-black hover:bg-slate-50 hover:text-black",
+    " bg-black rounded-xl text-white border-[1px] border-black hover:bg-slate-50 hover:text-black",
   success:
     base +
-    " bg-green-500 text-white :border-[1px] :border-green-500 hover:bg-slate-50 hover:text-green-500",
+    " bg-green-500 rounded-xl text-white :border-[1px] :border-green-500 hover:bg-slate-50 hover:text-green-500",
   danger:
     base +
-    " bg-red-500 text-white border-[1px] border-red-500 hover:bg-slate-50 hover:text-red-500",
-  outline: base + " border-[1px] text-slate-500 border-slate-50  bg-slate-50",
+    " bg-red-500 rounded-xl text-white border-[1px] border-red-500 hover:bg-slate-50 hover:text-red-500",
+  outline:
+    base +
+    " border-[1px] text-slate-500 border-slate-50 rounded-xl bg-slate-50",
+  action: base + "  rounded border-none px-2 py-1 text-sm text-white",
 };
 
 function Button({

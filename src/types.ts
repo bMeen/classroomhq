@@ -4,7 +4,7 @@ import { Dispatch, ReactElement } from "react";
 
 export type Status = "present" | "late" | "absent";
 
-export type Gender = "male" | "female";
+export type Gender = "male" | "female" | string;
 
 export type Subject = "Math" | "English" | "Science" | "History" | "Arts";
 
@@ -62,6 +62,20 @@ export type RemoveStudentAction = {
     id: string;
   };
 };
+export type UpdateStudentAction = {
+  type: "update-student";
+  payload: {
+    id: string;
+    updates: Partial<Omit<Student, "id">>;
+  };
+};
+export type UpdateGradeAction = {
+  type: "update-grade";
+  payload: {
+    id: string;
+    updates: Partial<GradeScores>;
+  };
+};
 
 export type ChangeStatusAction = {
   type: "change-status";
@@ -82,6 +96,8 @@ export type Actions =
   | AddStudentAction
   | ChangeStatusAction
   | RemoveStudentAction
+  | UpdateStudentAction
+  | UpdateGradeAction
   | AddNewSubject;
 
 export type StudentsContextType = {

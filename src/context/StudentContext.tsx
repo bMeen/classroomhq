@@ -3,6 +3,7 @@ import {
   Actions,
   Attendance,
   Grade,
+  GradeScores,
   StudentsContextType,
   StudentsState,
 } from "../types";
@@ -31,6 +32,33 @@ const studentsReducer = (
           (student) => student.id !== action.payload.id,
         ),
       };
+
+    case "update-student":
+      return {
+        ...state,
+        mockStudents: state.mockStudents.map((student) =>
+          student.id === action.payload.id
+            ? { ...student, ...action.payload.updates }
+            : student,
+        ),
+      };
+
+    case "update-grade":
+      return {
+        ...state,
+        mockStudents: state.mockStudents.map((student) =>
+          student.id === action.payload.id
+            ? {
+                ...student,
+                grades: {
+                  ...student.grades,
+                  ...action.payload.updates,
+                } as GradeScores,
+              }
+            : student,
+        ),
+      };
+
     case "change-status":
       return {
         ...state,

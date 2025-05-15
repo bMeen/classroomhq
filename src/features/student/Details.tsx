@@ -58,9 +58,11 @@ function Details() {
             <input
               type="text"
               id="gender"
-              {...register("gender")}
+              {...register("gender", {
+                setValueAs: (value) => (value ? value.toLowerCase() : value),
+              })}
               disabled
-              className="cursor-not-allowed"
+              className="cursor-not-allowed capitalize"
             />
           </FormInput>
         </FormRow>

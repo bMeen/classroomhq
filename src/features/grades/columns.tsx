@@ -1,6 +1,8 @@
 import { ColumnDef } from "@tanstack/react-table";
 import { DynamicSubject, Grade } from "../../types";
 import { UserPen } from "lucide-react";
+import Modal from "../../components/Modal";
+import EditGrade from "./EditGrade";
 
 export function useCustomColumns(
   subjects: DynamicSubject[],
@@ -15,10 +17,9 @@ export function useCustomColumns(
       header: "Student Name",
     },
     ...subjects.map((subject) => ({
-      header: subject,
+      header: () => <span className="capitalize">{subject}</span>,
       id: subject,
       accessorFn: (row: Grade) => row.grades[subject],
-      //cell: ({ getValue }) => <span>{getValue()}</span>,
     })),
     {
       accessorKey: "average_score",
@@ -26,9 +27,16 @@ export function useCustomColumns(
     },
     {
       id: "actions",
-      cell: () => (
+      cell: ({ row }) => (
         <div>
-          <UserPen className="text-blue-600" />
+          <Modal>
+            <Modal.Open opens="edit-grade">
+              <UserPen className="text-blue-600" />
+            </Modal.Open>
+            <Modal.Window name="edit-grade">
+              <EditGrade id={row.original.id} />
+            </Modal.Window>
+          </Modal>
         </div>
       ),
     },
