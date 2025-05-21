@@ -1,10 +1,10 @@
-/* import { CheckCircle, Clock, XCircle } from "lucide-react"; */
 import SubHeading from "../components/SubHeading";
 import Table from "../features/attendance/Table";
+import TableOperations from "../features/attendance/TableOperations";
 
 function Attendance() {
   return (
-    <>
+    <div>
       <SubHeading
         heading="Manage Class Attendance"
         paragraph=" This section provides comprehensive tools to efficiently monitor and
@@ -13,8 +13,10 @@ function Attendance() {
           remain current and reliable."
       />
 
+      <TableOperations />
+
       <Table />
-    </>
+    </div>
   );
 }
 

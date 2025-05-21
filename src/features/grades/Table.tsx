@@ -1,5 +1,6 @@
 import DataTable from "../../components/DataTable";
 import { useStudentsContext } from "../../context/StudentContext";
+import TableContainer from "../../ui/TableContainer";
 import { useCustomColumns } from "./columns";
 
 //import { columns } from "./columns";
@@ -15,9 +16,9 @@ function Table() {
   const columns = useCustomColumns(subjects);
 
   return (
-    <div>
+    <TableContainer>
       <DataTable columns={columns} data={totalGrades} />
-    </div>
+    </TableContainer>
   );
 }
 

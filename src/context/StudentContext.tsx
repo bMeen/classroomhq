@@ -112,9 +112,8 @@ const StudentsContext = createContext<StudentsContextType>(
 function StudentsProvider({ children }: { children: React.ReactNode }) {
   const [state, dispatch] = useReducer(studentsReducer, initialState);
 
-  const totalGrades: Grade[] = state.mockStudents.map((stud, index) => {
+  const totalGrades: Grade[] = state.mockStudents.map((stud) => {
     return {
-      sn: index + 1,
       id: stud.id,
       name: stud.fullName,
       average_score: getAverageScore(Object.values(stud.grades)),
@@ -122,17 +121,14 @@ function StudentsProvider({ children }: { children: React.ReactNode }) {
     };
   });
 
-  const totalAttendance: Attendance[] = state.mockStudents.map(
-    (stud, index) => {
-      return {
-        sn: index + 1,
-        id: stud.id,
-        status: stud.status,
-        name: stud.fullName,
-        ...stud.attendance,
-      };
-    },
-  );
+  const totalAttendance: Attendance[] = state.mockStudents.map((stud) => {
+    return {
+      id: stud.id,
+      status: stud.status,
+      name: stud.fullName,
+      ...stud.attendance,
+    };
+  });
 
   return (
     <StudentsContext.Provider

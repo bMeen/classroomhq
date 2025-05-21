@@ -33,14 +33,12 @@ export interface Student {
 }
 
 export type Attendance = {
-  sn: number;
   id: string;
   status: Status | "";
   name: string;
 } & Record<Status, number>;
 
 export type Grade = {
-  sn: number;
   id: string;
   name: string;
   average_score: number;
@@ -133,3 +131,5 @@ export const schema = yup.object({
   guardianEmail: yup.string().email("Provide a valide email").required(),
   guardianPhone: yup.string().required(),
 });
+
+export type Options = { label: string; value: string };

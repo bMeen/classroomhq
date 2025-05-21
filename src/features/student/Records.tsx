@@ -14,8 +14,6 @@ function Records() {
   if (!currentStudentRecords) return <p>Student Id not available</p>;
   return (
     <div className="w-full max-w-6xl">
-      <p>Grade {id}</p>
-
       <DataTable columns={columns} data={[currentStudentRecords]} />
     </div>
   );

@@ -9,12 +9,9 @@ export function useCustomColumns(
 ): ColumnDef<Grade>[] {
   return [
     {
-      accessorKey: "sn",
-      header: "S/N",
-    },
-    {
       accessorKey: "name",
       header: "Student Name",
+      enableSorting: false,
     },
     ...subjects.map((subject) => ({
       header: () => <span className="capitalize">{subject}</span>,
@@ -27,6 +24,7 @@ export function useCustomColumns(
     },
     {
       id: "actions",
+      enableSorting: false,
       cell: ({ row }) => (
         <div>
           <Modal>

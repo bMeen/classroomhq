@@ -16,8 +16,6 @@ function Grade() {
   if (!currentStudentGrades) return <p>Student data not available</p>;
   return (
     <div className="w-full max-w-6xl">
-      <p>Grade {id}</p>
-
       <DataTable columns={columns} data={[currentStudentGrades]} />
     </div>
   );

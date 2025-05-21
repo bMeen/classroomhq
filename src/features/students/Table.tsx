@@ -1,7 +1,9 @@
 import DataTable from "../../components/DataTable";
 import { useStudentsContext } from "../../context/StudentContext";
+import useFilter from "../../lib/useFilter";
 import { getAge } from "../../lib/utils";
 import { Student } from "../../types";
+import TableContainer from "../../ui/TableContainer";
 import { columns } from "./columns";
 
 function Table() {
@@ -9,18 +11,19 @@ function Table() {
     state: { mockStudents: data },
   } = useStudentsContext();
 
-  const students: Student[] = data.map((stud, index) => {
+  const students: Student[] = data.map((stud) => {
     return {
-      sn: index + 1,
       age: getAge(stud.dateOfBirth),
       ...stud,
     };
   });
 
+  const { filtered } = useFilter(students, "gender");
+
   return (
-    <div>
-      <DataTable columns={columns} data={students} />
-    </div>
+    <TableContainer>
+      <DataTable columns={columns} data={filtered} />
+    </TableContainer>
   );
 }
 

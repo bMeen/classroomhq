@@ -4,16 +4,14 @@ import Actions from "./Actions";
 
 export const columns: ColumnDef<Student>[] = [
   {
-    accessorKey: "sn",
-    header: "S/N",
-  },
-  {
     accessorKey: "fullName",
     header: "Name",
+    enableSorting: false,
   },
   {
     accessorKey: "guardianName",
     header: "Guardian",
+    enableSorting: false,
   },
 
   {
@@ -22,6 +20,7 @@ export const columns: ColumnDef<Student>[] = [
   },
   {
     accessorKey: "gender",
+    enableSorting: false,
     header: "Gender",
     cell: ({ getValue }) => {
       const value = getValue<string>();
@@ -30,6 +29,7 @@ export const columns: ColumnDef<Student>[] = [
   },
   {
     id: "actions",
+    enableSorting: false,
     cell: ({ row }) => <Actions id={row.original.id} />,
   },
 ];

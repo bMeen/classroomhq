@@ -5,7 +5,7 @@ type SubHeadingProps = {
 
 function SubHeading({ heading, paragraph }: SubHeadingProps) {
   return (
-    <div className="mb-10 space-y-1">
+    <div className="mb-5 space-y-1">
       <h3 className="text-lg font-medium">{heading}</h3>
       <p className="">{paragraph}</p>
     </div>
