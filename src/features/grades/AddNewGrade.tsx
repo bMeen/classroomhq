@@ -22,7 +22,8 @@ function AddNewSubject() {
         onChange={(e) => setSubject(e.target.value)}
       />
       <Button
-        className="absolute right-2 top-1/2 -translate-y-1/2 px-[12px] py-[3px] font-normal"
+        disabled={!subject}
+        className="absolute right-2 top-1/2 -translate-y-1/2 px-[12px] py-[3px] font-normal disabled:cursor-not-allowed"
         onClick={handleAddSubject}
       >
         Add

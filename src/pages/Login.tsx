@@ -1,9 +1,9 @@
-import Logo from "../components/Logo";
+import LoginForm from "../components/LoginForm";
 
 function Login() {
   return (
-    <div>
-      <Logo />
+    <div className="grid h-screen place-items-center">
+      <LoginForm />
     </div>
   );
 }

@@ -14,7 +14,9 @@ function FormInput({
       <label htmlFor={id}>{label}</label>
       <div>
         {children}
-        {error && <span className="mt-0.5 text-sm text-red-500">{error}</span>}
+        {error && (
+          <span className="mt-0.5 block text-sm text-red-500">{error}</span>
+        )}
       </div>
     </>
   );

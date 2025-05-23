@@ -1,6 +1,7 @@
 import { BookmarkCheck, Home, LogOut, Notebook, Users } from "lucide-react";
 import { NavItems } from "../types";
 import { NavLink } from "react-router-dom";
+import { useAuthContext } from "../context/AuthContext";
 
 const navigationItems: NavItems[] = [
   {
@@ -26,8 +27,10 @@ const navigationItems: NavItems[] = [
 ];
 
 function SideNavigation() {
+  const { logout } = useAuthContext();
+
   return (
-    <div className="bg-primary flex flex-1 flex-col p-2.5 text-white md:p-4 md:pt-8 lg:text-lg">
+    <div className="flex flex-1 flex-col bg-primary p-2.5 text-white md:p-4 md:pt-8 lg:text-lg">
       <ul className="flex flex-1 justify-center gap-10 md:flex-col md:justify-start md:gap-3">
         {navigationItems.map((item) => (
           <NavLink
@@ -45,9 +48,12 @@ function SideNavigation() {
         ))}
       </ul>
 
-      <div className="hidden items-center justify-between md:flex">
+      <div
+        className="hidden items-center justify-between md:flex"
+        onClick={logout}
+      >
         <p>Logout</p>
-        <div className="hover:bg-primary-hover rounded-full p-3">
+        <div className="rounded-full p-3 hover:bg-primary-hover">
           <LogOut className="cursor-pointer" />
         </div>
       </div>

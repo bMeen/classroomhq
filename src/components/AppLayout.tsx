@@ -1,9 +1,7 @@
-//import { Sidebar } from "lucide-react";
 import Header from "./Header";
 import Logo from "./Logo";
 import Main from "./Main";
 import Sidebar from "./Sidebar";
-//import Logo from "./Logo";
 
 function AppLayout() {
   return (

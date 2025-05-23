@@ -133,3 +133,25 @@ export const schema = yup.object({
 });
 
 export type Options = { label: string; value: string };
+
+export type AuthState = {
+  isAuthenticated: boolean;
+  user: {
+    username: string;
+    password: string;
+  } | null;
+};
+
+export type AuthContextType = {
+  login: (username: string, password: string) => void;
+  logout: () => void;
+  isAuthenticated: boolean;
+  user: {
+    username: string;
+    password: string;
+  } | null;
+};
+
+export type AuthActions =
+  | { type: "login"; payload: { username: string; password: string } }
+  | { type: "logout" };

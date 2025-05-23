@@ -1,4 +1,4 @@
-import { createContext, useContext, useReducer } from "react";
+import { createContext, useContext } from "react";
 import {
   Actions,
   Attendance,
@@ -9,6 +9,7 @@ import {
 } from "../types";
 import { mockStudents } from "../data/data";
 import { getAverageScore } from "../lib/utils";
+import { useLocalStorageReducer } from "../lib/useLocalStorageReducer";
 
 const initialState: StudentsState = {
   mockStudents,
@@ -110,7 +111,12 @@ const StudentsContext = createContext<StudentsContextType>(
 );
 
 function StudentsProvider({ children }: { children: React.ReactNode }) {
-  const [state, dispatch] = useReducer(studentsReducer, initialState);
+  const [state, dispatch] = useLocalStorageReducer<StudentsState, Actions>(
+    "students",
+    studentsReducer,
+    initialState,
+  );
+  /*   const [state, dispatch] = useReducer(studentsReducer, initialState); */
 
   const totalGrades: Grade[] = state.mockStudents.map((stud) => {
     return {
