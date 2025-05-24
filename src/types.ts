@@ -132,7 +132,7 @@ export const schema = yup.object({
   guardianPhone: yup.string().required(),
 });
 
-export type Options = { label: string; value: string };
+export type Options = { label: string; value: string | number };
 
 export type AuthState = {
   isAuthenticated: boolean;

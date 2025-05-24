@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useStudentsContext } from "../../context/StudentContext";
 import { useCustomColumns } from "../grades/columns";
 import DataTable from "../../components/DataTable";
+import TableContainer from "../../ui/TableContainer";
 
 function Grade() {
   const { id } = useParams();
@@ -15,9 +16,9 @@ function Grade() {
 
   if (!currentStudentGrades) return <p>Student data not available</p>;
   return (
-    <div className="w-full max-w-6xl">
+    <TableContainer className="w-full max-w-6xl">
       <DataTable columns={columns} data={[currentStudentGrades]} />
-    </div>
+    </TableContainer>
   );
 }
 

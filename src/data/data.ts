@@ -12,7 +12,7 @@ export const mockStudents: Student[] = [
     guardianPhone: "+2347824511357",
     status: "",
     grades: { Math: 95, English: 89, Science: 70, History: 81, Arts: 74 },
-    attendance: { present: 23, late: 0, absent: 3 },
+    attendance: { present: 22, late: 2, absent: 1 },
   },
   {
     id: "stu002",
@@ -25,7 +25,7 @@ export const mockStudents: Student[] = [
     guardianPhone: "01134960508",
     status: "",
     grades: { Math: 91, English: 72, Science: 77, History: 89, Arts: 83 },
-    attendance: { present: 18, late: 2, absent: 2 },
+    attendance: { present: 21, late: 2, absent: 2 },
   },
   {
     id: "stu003",
@@ -38,7 +38,7 @@ export const mockStudents: Student[] = [
     guardianPhone: "001-410-205-3537x166",
     status: "",
     grades: { Math: 62, English: 100, Science: 75, History: 78, Arts: 80 },
-    attendance: { present: 24, late: 3, absent: 0 },
+    attendance: { present: 20, late: 3, absent: 2 },
   },
   {
     id: "stu004",
@@ -64,7 +64,7 @@ export const mockStudents: Student[] = [
     guardianPhone: "01611234567",
     status: "",
     grades: { Math: 77, English: 85, Science: 79, History: 73, Arts: 84 },
-    attendance: { present: 20, late: 2, absent: 2 },
+    attendance: { present: 19, late: 3, absent: 3 },
   },
   {
     id: "stu006",
@@ -77,7 +77,7 @@ export const mockStudents: Student[] = [
     guardianPhone: "206-555-0178",
     status: "",
     grades: { Math: 91, English: 90, Science: 87, History: 88, Arts: 86 },
-    attendance: { present: 25, late: 0, absent: 1 },
+    attendance: { present: 19, late: 3, absent: 2 },
   },
   {
     id: "stu007",
@@ -90,7 +90,7 @@ export const mockStudents: Student[] = [
     guardianPhone: "+2348123456789",
     status: "",
     grades: { Math: 84, English: 86, Science: 80, History: 79, Arts: 88 },
-    attendance: { present: 21, late: 2, absent: 2 },
+    attendance: { present: 18, late: 2, absent: 3 },
   },
   {
     id: "stu008",
@@ -103,7 +103,7 @@ export const mockStudents: Student[] = [
     guardianPhone: "512-555-2389",
     status: "",
     grades: { Math: 77, English: 84, Science: 79, History: 83, Arts: 72 },
-    attendance: { present: 23, late: 1, absent: 2 },
+    attendance: { present: 18, late: 3, absent: 2 },
   },
   {
     id: "stu009",
@@ -116,7 +116,7 @@ export const mockStudents: Student[] = [
     guardianPhone: "+2348065789034",
     status: "",
     grades: { Math: 91, English: 83, Science: 78, History: 85, Arts: 92 },
-    attendance: { present: 24, late: 0, absent: 3 },
+    attendance: { present: 20, late: 2, absent: 3 },
   },
   {
     id: "stu010",
@@ -129,7 +129,7 @@ export const mockStudents: Student[] = [
     guardianPhone: "+2347054592387",
     status: "",
     grades: { Math: 93, English: 88, Science: 82, History: 80, Arts: 85 },
-    attendance: { present: 23, late: 2, absent: 2 },
+    attendance: { present: 20, late: 3, absent: 2 },
   },
   {
     id: "stu011",
@@ -142,7 +142,7 @@ export const mockStudents: Student[] = [
     guardianPhone: "02089765432",
     status: "",
     grades: { Math: 79, English: 85, Science: 88, History: 72, Arts: 91 },
-    attendance: { present: 22, late: 3, absent: 2 },
+    attendance: { present: 21, late: 1, absent: 3 },
   },
   {
     id: "stu012",
@@ -155,7 +155,7 @@ export const mockStudents: Student[] = [
     guardianPhone: "01214789876",
     status: "",
     grades: { Math: 85, English: 92, Science: 88, History: 86, Arts: 90 },
-    attendance: { present: 24, late: 1, absent: 2 },
+    attendance: { present: 21, late: 2, absent: 2 },
   },
   {
     id: "stu013",
@@ -168,7 +168,7 @@ export const mockStudents: Student[] = [
     guardianPhone: "01612457892",
     status: "",
     grades: { Math: 90, English: 82, Science: 91, History: 88, Arts: 87 },
-    attendance: { present: 23, late: 1, absent: 2 },
+    attendance: { present: 22, late: 1, absent: 2 },
   },
   {
     id: "stu014",
@@ -181,7 +181,7 @@ export const mockStudents: Student[] = [
     guardianPhone: "+2348012345678",
     status: "",
     grades: { Math: 78, English: 92, Science: 90, History: 85, Arts: 80 },
-    attendance: { present: 24, late: 1, absent: 2 },
+    attendance: { present: 23, late: 1, absent: 1 },
   },
   {
     id: "stu015",
@@ -194,7 +194,7 @@ export const mockStudents: Student[] = [
     guardianPhone: "404-555-0101",
     status: "",
     grades: { Math: 80, English: 86, Science: 82, History: 91, Arts: 85 },
-    attendance: { present: 21, late: 2, absent: 3 },
+    attendance: { present: 21, late: 3, absent: 1 },
   },
   {
     id: "stu016",
@@ -207,7 +207,7 @@ export const mockStudents: Student[] = [
     guardianPhone: "312-555-1122",
     status: "",
     grades: { Math: 90, English: 84, Science: 88, History: 92, Arts: 78 },
-    attendance: { present: 26, late: 1, absent: 0 },
+    attendance: { present: 22, late: 2, absent: 1 },
   },
   {
     id: "stu017",
@@ -220,7 +220,7 @@ export const mockStudents: Student[] = [
     guardianPhone: "617-555-0134",
     status: "",
     grades: { Math: 85, English: 90, Science: 84, History: 88, Arts: 82 },
-    attendance: { present: 25, late: 1, absent: 1 },
+    attendance: { present: 20, late: 3, absent: 2 },
   },
   {
     id: "stu018",
@@ -233,7 +233,7 @@ export const mockStudents: Student[] = [
     guardianPhone: "+2347068775321",
     status: "",
     grades: { Math: 88, English: 83, Science: 78, History: 91, Arts: 80 },
-    attendance: { present: 22, late: 2, absent: 3 },
+    attendance: { present: 19, late: 3, absent: 3 },
   },
   {
     id: "stu019",
@@ -246,7 +246,7 @@ export const mockStudents: Student[] = [
     guardianPhone: "213-555-0897",
     status: "",
     grades: { Math: 92, English: 89, Science: 85, History: 91, Arts: 83 },
-    attendance: { present: 25, late: 1, absent: 2 },
+    attendance: { present: 21, late: 2, absent: 2 },
   },
   {
     id: "stu020",
@@ -259,7 +259,7 @@ export const mockStudents: Student[] = [
     guardianPhone: "+552133459876",
     status: "",
     grades: { Math: 79, English: 92, Science: 84, History: 87, Arts: 89 },
-    attendance: { present: 23, late: 1, absent: 3 },
+    attendance: { present: 23, late: 1, absent: 1 },
   },
   {
     id: "stu021",
@@ -272,7 +272,7 @@ export const mockStudents: Student[] = [
     guardianPhone: "415-555-0392",
     status: "",
     grades: { Math: 87, English: 80, Science: 88, History: 90, Arts: 86 },
-    attendance: { present: 24, late: 2, absent: 1 },
+    attendance: { present: 20, late: 2, absent: 3 },
   },
   {
     id: "stu022",
@@ -285,7 +285,7 @@ export const mockStudents: Student[] = [
     guardianPhone: "305-555-0109",
     status: "",
     grades: { Math: 91, English: 85, Science: 79, History: 92, Arts: 88 },
-    attendance: { present: 24, late: 1, absent: 2 },
+    attendance: { present: 20, late: 3, absent: 2 },
   },
   {
     id: "stu023",
@@ -298,7 +298,7 @@ export const mockStudents: Student[] = [
     guardianPhone: "+582124579340",
     status: "",
     grades: { Math: 84, English: 79, Science: 91, History: 80, Arts: 87 },
-    attendance: { present: 22, late: 1, absent: 4 },
+    attendance: { present: 21, late: 2, absent: 2 },
   },
   {
     id: "stu024",
@@ -311,7 +311,7 @@ export const mockStudents: Student[] = [
     guardianPhone: "206-555-0567",
     status: "",
     grades: { Math: 82, English: 87, Science: 80, History: 89, Arts: 85 },
-    attendance: { present: 23, late: 0, absent: 3 },
+    attendance: { present: 22, late: 1, absent: 2 },
   },
   {
     id: "stu025",
@@ -324,7 +324,7 @@ export const mockStudents: Student[] = [
     guardianPhone: "+14165583920",
     status: "",
     grades: { Math: 92, English: 84, Science: 90, History: 83, Arts: 81 },
-    attendance: { present: 22, late: 3, absent: 1 },
+    attendance: { present: 23, late: 1, absent: 1 },
   },
   {
     id: "stu026",
@@ -337,7 +337,7 @@ export const mockStudents: Student[] = [
     guardianPhone: "+61298765432",
     status: "",
     grades: { Math: 81, English: 90, Science: 85, History: 89, Arts: 82 },
-    attendance: { present: 21, late: 3, absent: 2 },
+    attendance: { present: 20, late: 3, absent: 2 },
   },
   {
     id: "stu027",
@@ -350,7 +350,7 @@ export const mockStudents: Student[] = [
     guardianPhone: "+61390234567",
     status: "",
     grades: { Math: 85, English: 88, Science: 79, History: 90, Arts: 86 },
-    attendance: { present: 23, late: 0, absent: 3 },
+    attendance: { present: 21, late: 2, absent: 2 },
   },
   {
     id: "stu028",
@@ -363,7 +363,7 @@ export const mockStudents: Student[] = [
     guardianPhone: "+573105678234",
     status: "",
     grades: { Math: 78, English: 81, Science: 89, History: 85, Arts: 80 },
-    attendance: { present: 24, late: 1, absent: 2 },
+    attendance: { present: 22, late: 1, absent: 2 },
   },
   {
     id: "stu029",
@@ -376,7 +376,7 @@ export const mockStudents: Student[] = [
     guardianPhone: "212-555-0345",
     status: "",
     grades: { Math: 80, English: 83, Science: 85, History: 88, Arts: 77 },
-    attendance: { present: 25, late: 2, absent: 1 },
+    attendance: { present: 23, late: 1, absent: 1 },
   },
   {
     id: "stu030",
@@ -389,7 +389,7 @@ export const mockStudents: Student[] = [
     guardianPhone: "02084865372",
     status: "",
     grades: { Math: 90, English: 89, Science: 84, History: 82, Arts: 88 },
-    attendance: { present: 24, late: 0, absent: 3 },
+    attendance: { present: 20, late: 3, absent: 2 },
   },
   {
     id: "stu031",
@@ -402,7 +402,7 @@ export const mockStudents: Student[] = [
     guardianPhone: "+2347023456789",
     status: "",
     grades: { Math: 92, English: 85, Science: 91, History: 84, Arts: 89 },
-    attendance: { present: 22, late: 2, absent: 1 },
+    attendance: { present: 21, late: 2, absent: 2 },
   },
   {
     id: "stu032",
@@ -415,7 +415,7 @@ export const mockStudents: Student[] = [
     guardianPhone: "+2348098765432",
     status: "",
     grades: { Math: 89, English: 82, Science: 87, History: 83, Arts: 91 },
-    attendance: { present: 23, late: 2, absent: 1 },
+    attendance: { present: 22, late: 1, absent: 2 },
   },
   {
     id: "stu033",
@@ -428,7 +428,7 @@ export const mockStudents: Student[] = [
     guardianPhone: "619-555-0167",
     status: "",
     grades: { Math: 88, English: 91, Science: 85, History: 80, Arts: 82 },
-    attendance: { present: 25, late: 0, absent: 2 },
+    attendance: { present: 23, late: 1, absent: 1 },
   },
   {
     id: "stu034",
@@ -441,7 +441,7 @@ export const mockStudents: Student[] = [
     guardianPhone: "+6561334678",
     status: "",
     grades: { Math: 87, English: 89, Science: 90, History: 85, Arts: 84 },
-    attendance: { present: 23, late: 2, absent: 1 },
+    attendance: { present: 20, late: 3, absent: 2 },
   },
   {
     id: "stu035",
@@ -454,6 +454,6 @@ export const mockStudents: Student[] = [
     guardianPhone: "+8134576389",
     status: "",
     grades: { Math: 92, English: 88, Science: 91, History: 89, Arts: 90 },
-    attendance: { present: 24, late: 0, absent: 1 },
+    attendance: { present: 21, late: 2, absent: 2 },
   },
 ];
