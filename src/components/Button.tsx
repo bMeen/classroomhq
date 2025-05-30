@@ -19,19 +19,19 @@ const base = "flex py-2 px-4 text-sm font-medium items-center gap-2";
 const styles = {
   default:
     base +
-    " bg-black rounded-md text-white border-[1px] border-black hover:bg-slate-50 hover:text-black",
+    " bg-primary rounded-md text-text-primary border-[1px] border-primary hover:bg-transparent hover:text-primary",
   success:
     base +
-    " bg-green-500 rounded-md text-white :border-[1px] :border-green-500 hover:bg-slate-50 hover:text-green-500",
+    " bg-color-present rounded-md text-white border-[1px] border-color-present hover:bg-transparent hover:text-color-present",
   danger:
     base +
-    " bg-red-500 rounded-md text-white border-[1px] border-red-500 hover:bg-slate-50 hover:text-red-500",
+    " bg-color-absent rounded-md text-white border-[1px] border-color-absent hover:bg-transparent hover:text-color-absent",
   outline:
     base +
-    " border-[1px] text-slate-500 border-slate-50 rounded-md bg-slate-50",
+    " border-[1px] text-primary-hover border-slate-50 rounded-md bg-slate-50",
   action: base + "  rounded border-none px-2 py-1 text-sm text-white",
   pagination:
-    "py-2 flex items-center gap-1 px-3 text-sm border-[1px] text-slate-900 border-slate-50 rounded-md bg-slate-100 hover:border-slate-500 disabled:cursor-not-allowed disabled:hover:border-white",
+    "py-2 flex items-center gap-1 px-3 text-sm border-[1px] text-primary border-slate-50 rounded-md bg-slate-100 hover:bg-transparent hover:border-primary disabled:cursor-not-allowed disabled:hover:border-transparent",
 };
 
 function Button({

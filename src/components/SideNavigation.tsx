@@ -2,6 +2,8 @@ import { BookmarkCheck, Home, LogOut, Notebook, Users } from "lucide-react";
 import { NavItems } from "../types";
 import { NavLink } from "react-router-dom";
 import { useAuthContext } from "../context/AuthContext";
+import Modal from "./Modal";
+import Confirmation from "./Confirmation";
 
 const navigationItems: NavItems[] = [
   {
@@ -30,7 +32,7 @@ function SideNavigation() {
   const { logout } = useAuthContext();
 
   return (
-    <div className="flex flex-1 flex-col bg-primary p-2.5 text-white md:p-4 md:pt-8 lg:text-lg">
+    <div className="text-text-primary flex flex-1 flex-col bg-primary p-2.5 md:p-4 md:pt-8 lg:text-lg">
       <ul className="flex flex-1 justify-center gap-10 md:flex-col md:justify-start md:gap-3">
         {navigationItems.map((item) => (
           <NavLink
@@ -48,13 +50,22 @@ function SideNavigation() {
         ))}
       </ul>
 
-      <div
-        className="hidden items-center justify-between md:flex"
-        onClick={logout}
-      >
+      <div className="hidden items-center justify-between md:flex">
         <p>Logout</p>
         <div className="rounded-full p-3 hover:bg-primary-hover">
-          <LogOut className="cursor-pointer" />
+          <Modal>
+            <Modal.Open opens="logout">
+              <LogOut className="cursor-pointer" />
+            </Modal.Open>
+            <Modal.Window name="logout">
+              <Confirmation
+                title="Log Out"
+                description="Are you sure you want to log out of your account?"
+                type="Logout"
+                action={logout}
+              />
+            </Modal.Window>
+          </Modal>
         </div>
       </div>
     </div>

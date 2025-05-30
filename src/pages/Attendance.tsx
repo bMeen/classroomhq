@@ -7,10 +7,7 @@ function Attendance() {
     <div>
       <SubHeading
         heading="Manage Class Attendance"
-        paragraph=" This section provides comprehensive tools to efficiently monitor and
-          manage student attendance. You can view historical attendance records,
-          accurately mark daily attendance, and make updates to ensure records
-          remain current and reliable."
+        paragraph="Record, view, and analyze grades across all subjects. Edit existing scores, add new subjects, and gain insights into student progress with clear, actionable performance data."
       />
 
       <TableOperations />

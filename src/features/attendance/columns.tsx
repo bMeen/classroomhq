@@ -6,8 +6,7 @@ import Actions from "./Actions";
 export const columns: ColumnDef<Attendance>[] = [
   {
     accessorKey: "name",
-    header: "Student Name",
-    enableSorting: false,
+    header: "Name",
   },
   {
     accessorKey: "present",

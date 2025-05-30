@@ -7,6 +7,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useStudentsContext } from "../../context/StudentContext";
 import { generateStudentId } from "../../lib/utils";
 import { useNavigate } from "react-router-dom";
+import SubHeading from "../../components/SubHeading";
 
 function StudentForm({
   id,
@@ -70,104 +71,118 @@ function StudentForm({
   };
 
   return (
-    <form className="mt-4" onSubmit={handleSubmit(onSubmit)}>
-      <div className="space-y-5">
-        <FormRow>
-          <FormInput
-            id="fullName"
-            label="Full Name"
-            error={errors.fullName?.message}
-          >
-            <input type="text" id="fullName" {...register("fullName")} />
-          </FormInput>
-        </FormRow>
-        <FormRow>
-          <FormInput
-            id="date-of-birth"
-            label="Date of Birth"
-            error={errors.dateOfBirth?.message}
-          >
-            <input
-              type="text"
+    <>
+      <SubHeading
+        heading={id ? "Update Profile" : "Add Student"}
+        paragraph={
+          id
+            ? "Update the student’s profile"
+            : "Fill in the details to create a new student profile."
+        }
+      />
+      <form className="mt-4" onSubmit={handleSubmit(onSubmit)}>
+        <div className="space-y-5">
+          <FormRow>
+            <FormInput
+              id="fullName"
+              label="Full Name"
+              error={errors.fullName?.message}
+            >
+              <input type="text" id="fullName" {...register("fullName")} />
+            </FormInput>
+          </FormRow>
+          <FormRow>
+            <FormInput
               id="date-of-birth"
-              {...register("dateOfBirth")}
-              placeholder="YYYY-MM-DD"
-            />
-          </FormInput>
-        </FormRow>
-        <FormRow>
-          <FormInput id="gender" label="Gender" error={errors.gender?.message}>
-            <input
-              type="text"
+              label="Date of Birth"
+              error={errors.dateOfBirth?.message}
+            >
+              <input
+                type="text"
+                id="date-of-birth"
+                {...register("dateOfBirth")}
+                placeholder="YYYY-MM-DD"
+              />
+            </FormInput>
+          </FormRow>
+          <FormRow>
+            <FormInput
               id="gender"
-              className="capitalize"
-              {...register("gender", {
-                setValueAs: (value) => (value ? value.toLowerCase() : value),
-              })}
-            />
-          </FormInput>
-        </FormRow>
-        <FormRow>
-          <FormInput
-            id="address"
-            label="Address"
-            error={errors.address?.message}
-          >
-            <input type="text" id="address" {...register("address")} />
-          </FormInput>
-        </FormRow>
-        <FormRow>
-          <FormInput
-            id="guardian-name"
-            label="Guardian / Parent"
-            error={errors.guardianName?.message}
-          >
-            <input
-              type="text"
+              label="Gender"
+              error={errors.gender?.message}
+            >
+              <input
+                type="text"
+                id="gender"
+                className="capitalize"
+                {...register("gender", {
+                  setValueAs: (value) => (value ? value.toLowerCase() : value),
+                })}
+              />
+            </FormInput>
+          </FormRow>
+          <FormRow>
+            <FormInput
+              id="address"
+              label="Address"
+              error={errors.address?.message}
+            >
+              <input type="text" id="address" {...register("address")} />
+            </FormInput>
+          </FormRow>
+          <FormRow>
+            <FormInput
               id="guardian-name"
-              {...register("guardianName")}
-            />
-          </FormInput>
-        </FormRow>
-        <FormRow>
-          <FormInput
-            id="guardian-email"
-            label="Email"
-            error={errors.guardianEmail?.message}
-          >
-            <input
-              type="text"
+              label="Guardian / Parent"
+              error={errors.guardianName?.message}
+            >
+              <input
+                type="text"
+                id="guardian-name"
+                {...register("guardianName")}
+              />
+            </FormInput>
+          </FormRow>
+          <FormRow>
+            <FormInput
               id="guardian-email"
-              {...register("guardianEmail")}
-            />
-          </FormInput>
-        </FormRow>
-        <FormRow>
-          <FormInput
-            id="guardian-phone"
-            label="Phone Number"
-            error={errors.guardianPhone?.message}
-          >
-            <input
-              type="text"
+              label="Email"
+              error={errors.guardianEmail?.message}
+            >
+              <input
+                type="text"
+                id="guardian-email"
+                {...register("guardianEmail")}
+              />
+            </FormInput>
+          </FormRow>
+          <FormRow>
+            <FormInput
               id="guardian-phone"
-              {...register("guardianPhone")}
-            />
-          </FormInput>
-        </FormRow>
-      </div>
+              label="Phone Number"
+              error={errors.guardianPhone?.message}
+            >
+              <input
+                type="text"
+                id="guardian-phone"
+                {...register("guardianPhone")}
+              />
+            </FormInput>
+          </FormRow>
+        </div>
 
-      <div className="mt-5 flex justify-end gap-3 lg:mt-10">
-        <Button type="outline" onClick={() => onCloseModal?.()}>
-          Cancel
-        </Button>
-        {isEditSession ? (
-          <Button>Update</Button>
-        ) : (
-          <Button type="success">Add</Button>
-        )}
-      </div>
-    </form>
+        <div className="mt-5 flex justify-end gap-3 lg:mt-10">
+          <Button type="outline" onClick={() => onCloseModal?.()}>
+            Cancel
+          </Button>
+          {isEditSession ? (
+            <Button>Update</Button>
+          ) : (
+            <Button type="success">Add</Button>
+          )}
+        </div>
+      </form>
+    </>
   );
 }
 

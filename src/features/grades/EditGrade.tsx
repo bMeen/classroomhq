@@ -6,6 +6,7 @@ import FormInput from "../../ui/FormInput";
 import FormRow from "../../ui/FormRow";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import SubHeading from "../../components/SubHeading";
 
 function EditGrade({
   id,
@@ -57,33 +58,39 @@ function EditGrade({
   }
 
   return (
-    <form className="mt-4" onSubmit={handleSubmit(onSubmit)}>
-      <div className="w-full max-w-lg space-y-5">
-        {Object.entries(grades as GradeScores).map(([subject]) => (
-          <FormRow key={subject}>
-            <FormInput
-              id={subject}
-              label={subject}
-              error={errors[subject]?.message}
-            >
-              <input
-                type="text"
+    <>
+      <SubHeading
+        heading="Edit Grade"
+        paragraph="Update the student’s grade for any subject."
+      />
+      <form className="mt-4" onSubmit={handleSubmit(onSubmit)}>
+        <div className="w-full max-w-lg space-y-5">
+          {Object.entries(grades as GradeScores).map(([subject]) => (
+            <FormRow key={subject}>
+              <FormInput
                 id={subject}
-                {...register(`${subject}`, {
-                  setValueAs: (value) => (value ? Number(value) : value),
-                })}
-              />
-            </FormInput>
-          </FormRow>
-        ))}
-      </div>
-      <div className="mt-5 flex justify-end gap-3 lg:mt-10">
-        <Button type="outline" onClick={() => onCloseModal?.()}>
-          Cancel
-        </Button>
-        <Button>Update</Button>
-      </div>
-    </form>
+                label={subject}
+                error={errors[subject]?.message}
+              >
+                <input
+                  type="text"
+                  id={subject}
+                  {...register(`${subject}`, {
+                    setValueAs: (value) => (value ? Number(value) : value),
+                  })}
+                />
+              </FormInput>
+            </FormRow>
+          ))}
+        </div>
+        <div className="mt-5 flex justify-end gap-3 lg:mt-10">
+          <Button type="outline" onClick={() => onCloseModal?.()}>
+            Cancel
+          </Button>
+          <Button>Update</Button>
+        </div>
+      </form>
+    </>
   );
 }
 

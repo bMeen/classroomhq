@@ -8,8 +8,8 @@ function Header() {
   return (
     <div className="border p-1.5 md:col-span-2 md:col-start-2 md:row-start-2 md:p-3">
       <div className="flex items-center justify-between">
-        <h2 className="text-lg font-bold text-primary md:text-2xl">
-          Hello Admin
+        <h2 className="text-lg font-medium text-primary md:text-2xl">
+          Welcome Admin
         </h2>
 
         <SearchQuery />

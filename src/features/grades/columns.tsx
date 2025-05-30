@@ -10,8 +10,7 @@ export function useCustomColumns(
   return [
     {
       accessorKey: "name",
-      header: "Student Name",
-      enableSorting: false,
+      header: "Name",
     },
     ...subjects.map((subject) => ({
       header: () => <span className="capitalize">{subject}</span>,
@@ -29,7 +28,7 @@ export function useCustomColumns(
         <div>
           <Modal>
             <Modal.Open opens="edit-grade">
-              <UserPen className="text-blue-600" />
+              <UserPen className="text-color-late" />
             </Modal.Open>
             <Modal.Window name="edit-grade">
               <EditGrade id={row.original.id} />

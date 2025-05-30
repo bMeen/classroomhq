@@ -10,15 +10,15 @@ type ActionType = {
 const ActionTypes: ActionType[] = [
   {
     type: "present",
-    class: "bg-green-500 hover:bg-green-600",
+    class: "bg-color-present hover:bg-color-present/85",
   },
   {
     type: "late",
-    class: "bg-orange-500 hover:bg-orange-600",
+    class: "bg-color-late hover:bg-color-late/85",
   },
   {
     type: "absent",
-    class: "bg-red-500 hover:bg-red-600",
+    class: "bg-color-absent hover:bg-color-absent/85",
   },
 ];
 

@@ -11,7 +11,7 @@ export const mockStudents: Student[] = [
     guardianEmail: "mollygray@carter.com",
     guardianPhone: "+2347824511357",
     status: "",
-    grades: { Math: 95, English: 89, Science: 70, History: 81, Arts: 74 },
+    grades: { Math: 40, English: 45, Science: 42, History: 48, Arts: 50 },
     attendance: { present: 22, late: 2, absent: 1 },
   },
   {
@@ -24,7 +24,7 @@ export const mockStudents: Student[] = [
     guardianEmail: "iaingilbert@outlook.com",
     guardianPhone: "01134960508",
     status: "",
-    grades: { Math: 91, English: 72, Science: 77, History: 89, Arts: 83 },
+    grades: { Math: 55, English: 60, Science: 58, History: 62, Arts: 65 },
     attendance: { present: 21, late: 2, absent: 2 },
   },
   {
@@ -37,7 +37,7 @@ export const mockStudents: Student[] = [
     guardianEmail: "fkennedy@brown.com",
     guardianPhone: "001-410-205-3537x166",
     status: "",
-    grades: { Math: 62, English: 100, Science: 75, History: 78, Arts: 80 },
+    grades: { Math: 82, English: 87, Science: 90, History: 92, Arts: 84 },
     attendance: { present: 20, late: 3, absent: 2 },
   },
   {
@@ -50,7 +50,7 @@ export const mockStudents: Student[] = [
     guardianEmail: "bola_guardian@example.com",
     guardianPhone: "+2348034567890",
     status: "",
-    grades: { Math: 88, English: 91, Science: 85, History: 87, Arts: 90 },
+    grades: { Math: 57, English: 62, Science: 60, History: 64, Arts: 67 },
     attendance: { present: 22, late: 1, absent: 2 },
   },
   {
@@ -63,7 +63,7 @@ export const mockStudents: Student[] = [
     guardianEmail: "sophie.hughes@example.co.uk",
     guardianPhone: "01611234567",
     status: "",
-    grades: { Math: 77, English: 85, Science: 79, History: 73, Arts: 84 },
+    grades: { Math: 67, English: 72, Science: 62, History: 77, Arts: 82 },
     attendance: { present: 19, late: 3, absent: 3 },
   },
   {
@@ -76,7 +76,7 @@ export const mockStudents: Student[] = [
     guardianEmail: "angela.scott@example.com",
     guardianPhone: "206-555-0178",
     status: "",
-    grades: { Math: 91, English: 90, Science: 87, History: 88, Arts: 86 },
+    grades: { Math: 53, English: 58, Science: 56, History: 60, Arts: 63 },
     attendance: { present: 19, late: 3, absent: 2 },
   },
   {
@@ -89,7 +89,7 @@ export const mockStudents: Student[] = [
     guardianEmail: "ifeoma_guardian@example.com",
     guardianPhone: "+2348123456789",
     status: "",
-    grades: { Math: 84, English: 86, Science: 80, History: 79, Arts: 88 },
+    grades: { Math: 42, English: 47, Science: 44, History: 50, Arts: 52 },
     attendance: { present: 18, late: 2, absent: 3 },
   },
   {
@@ -102,7 +102,7 @@ export const mockStudents: Student[] = [
     guardianEmail: "alice_wood@example.com",
     guardianPhone: "512-555-2389",
     status: "",
-    grades: { Math: 77, English: 84, Science: 79, History: 83, Arts: 72 },
+    grades: { Math: 56, English: 61, Science: 59, History: 63, Arts: 66 },
     attendance: { present: 18, late: 3, absent: 2 },
   },
   {
@@ -115,7 +115,7 @@ export const mockStudents: Student[] = [
     guardianEmail: "ngozi.guardian@example.com",
     guardianPhone: "+2348065789034",
     status: "",
-    grades: { Math: 91, English: 83, Science: 78, History: 85, Arts: 92 },
+    grades: { Math: 78, English: 83, Science: 86, History: 88, Arts: 80 },
     attendance: { present: 20, late: 2, absent: 3 },
   },
   {
@@ -128,7 +128,7 @@ export const mockStudents: Student[] = [
     guardianEmail: "amaka_guardian@example.com",
     guardianPhone: "+2347054592387",
     status: "",
-    grades: { Math: 93, English: 88, Science: 82, History: 80, Arts: 85 },
+    grades: { Math: 54, English: 59, Science: 57, History: 61, Arts: 64 },
     attendance: { present: 20, late: 3, absent: 2 },
   },
   {
@@ -141,7 +141,7 @@ export const mockStudents: Student[] = [
     guardianEmail: "david.phelps@example.co.uk",
     guardianPhone: "02089765432",
     status: "",
-    grades: { Math: 79, English: 85, Science: 88, History: 72, Arts: 91 },
+    grades: { Math: 63, English: 68, Science: 58, History: 73, Arts: 78 },
     attendance: { present: 21, late: 1, absent: 3 },
   },
   {
@@ -154,7 +154,7 @@ export const mockStudents: Student[] = [
     guardianEmail: "zoe.johnson@example.com",
     guardianPhone: "01214789876",
     status: "",
-    grades: { Math: 85, English: 92, Science: 88, History: 86, Arts: 90 },
+    grades: { Math: 58, English: 63, Science: 61, History: 65, Arts: 68 },
     attendance: { present: 21, late: 2, absent: 2 },
   },
   {
@@ -167,7 +167,7 @@ export const mockStudents: Student[] = [
     guardianEmail: "jason.campbell@example.co.uk",
     guardianPhone: "01612457892",
     status: "",
-    grades: { Math: 90, English: 82, Science: 91, History: 88, Arts: 87 },
+    grades: { Math: 66, English: 71, Science: 61, History: 76, Arts: 81 },
     attendance: { present: 22, late: 1, absent: 2 },
   },
   {
@@ -180,7 +180,7 @@ export const mockStudents: Student[] = [
     guardianEmail: "amos_guardian@example.com",
     guardianPhone: "+2348012345678",
     status: "",
-    grades: { Math: 78, English: 92, Science: 90, History: 85, Arts: 80 },
+    grades: { Math: 41, English: 46, Science: 43, History: 49, Arts: 51 },
     attendance: { present: 23, late: 1, absent: 1 },
   },
   {
@@ -193,7 +193,7 @@ export const mockStudents: Student[] = [
     guardianEmail: "ava.clarke@example.com",
     guardianPhone: "404-555-0101",
     status: "",
-    grades: { Math: 80, English: 86, Science: 82, History: 91, Arts: 85 },
+    grades: { Math: 81, English: 86, Science: 89, History: 91, Arts: 83 },
     attendance: { present: 21, late: 3, absent: 1 },
   },
   {
@@ -206,7 +206,7 @@ export const mockStudents: Student[] = [
     guardianEmail: "john.doe@example.com",
     guardianPhone: "312-555-1122",
     status: "",
-    grades: { Math: 90, English: 84, Science: 88, History: 92, Arts: 78 },
+    grades: { Math: 55, English: 60, Science: 58, History: 62, Arts: 65 },
     attendance: { present: 22, late: 2, absent: 1 },
   },
   {
@@ -219,7 +219,7 @@ export const mockStudents: Student[] = [
     guardianEmail: "riley.moore@example.com",
     guardianPhone: "617-555-0134",
     status: "",
-    grades: { Math: 85, English: 90, Science: 84, History: 88, Arts: 82 },
+    grades: { Math: 64, English: 69, Science: 59, History: 74, Arts: 79 },
     attendance: { present: 20, late: 3, absent: 2 },
   },
   {
@@ -232,7 +232,7 @@ export const mockStudents: Student[] = [
     guardianEmail: "hassan_guardian@example.com",
     guardianPhone: "+2347068775321",
     status: "",
-    grades: { Math: 88, English: 83, Science: 78, History: 91, Arts: 80 },
+    grades: { Math: 59, English: 64, Science: 62, History: 66, Arts: 69 },
     attendance: { present: 19, late: 3, absent: 3 },
   },
   {
@@ -245,7 +245,7 @@ export const mockStudents: Student[] = [
     guardianEmail: "sophia.patel@example.com",
     guardianPhone: "213-555-0897",
     status: "",
-    grades: { Math: 92, English: 89, Science: 85, History: 91, Arts: 83 },
+    grades: { Math: 68, English: 73, Science: 63, History: 78, Arts: 83 },
     attendance: { present: 21, late: 2, absent: 2 },
   },
   {
@@ -258,7 +258,7 @@ export const mockStudents: Student[] = [
     guardianEmail: "rafael.silva@example.com",
     guardianPhone: "+552133459876",
     status: "",
-    grades: { Math: 79, English: 92, Science: 84, History: 87, Arts: 89 },
+    grades: { Math: 52, English: 57, Science: 55, History: 59, Arts: 62 },
     attendance: { present: 23, late: 1, absent: 1 },
   },
   {
@@ -271,7 +271,7 @@ export const mockStudents: Student[] = [
     guardianEmail: "lara.bennett@example.com",
     guardianPhone: "415-555-0392",
     status: "",
-    grades: { Math: 87, English: 80, Science: 88, History: 90, Arts: 86 },
+    grades: { Math: 40, English: 43, Science: 41, History: 46, Arts: 48 },
     attendance: { present: 20, late: 2, absent: 3 },
   },
   {
@@ -284,7 +284,7 @@ export const mockStudents: Student[] = [
     guardianEmail: "aidan.lee@example.com",
     guardianPhone: "305-555-0109",
     status: "",
-    grades: { Math: 91, English: 85, Science: 79, History: 92, Arts: 88 },
+    grades: { Math: 79, English: 84, Science: 87, History: 89, Arts: 81 },
     attendance: { present: 20, late: 3, absent: 2 },
   },
   {
@@ -297,7 +297,7 @@ export const mockStudents: Student[] = [
     guardianEmail: "yara.benitez@example.com",
     guardianPhone: "+582124579340",
     status: "",
-    grades: { Math: 84, English: 79, Science: 91, History: 80, Arts: 87 },
+    grades: { Math: 60, English: 65, Science: 63, History: 67, Arts: 70 },
     attendance: { present: 21, late: 2, absent: 2 },
   },
   {
@@ -310,7 +310,7 @@ export const mockStudents: Student[] = [
     guardianEmail: "maya.thompson@example.com",
     guardianPhone: "206-555-0567",
     status: "",
-    grades: { Math: 82, English: 87, Science: 80, History: 89, Arts: 85 },
+    grades: { Math: 65, English: 70, Science: 60, History: 75, Arts: 80 },
     attendance: { present: 22, late: 1, absent: 2 },
   },
   {
@@ -323,7 +323,7 @@ export const mockStudents: Student[] = [
     guardianEmail: "james.park@example.com",
     guardianPhone: "+14165583920",
     status: "",
-    grades: { Math: 92, English: 84, Science: 90, History: 83, Arts: 81 },
+    grades: { Math: 54, English: 59, Science: 57, History: 61, Arts: 64 },
     attendance: { present: 23, late: 1, absent: 1 },
   },
   {
@@ -336,7 +336,7 @@ export const mockStudents: Student[] = [
     guardianEmail: "olivia.roberts@example.com",
     guardianPhone: "+61298765432",
     status: "",
-    grades: { Math: 81, English: 90, Science: 85, History: 89, Arts: 82 },
+    grades: { Math: 69, English: 74, Science: 64, History: 79, Arts: 84 },
     attendance: { present: 20, late: 3, absent: 2 },
   },
   {
@@ -349,7 +349,7 @@ export const mockStudents: Student[] = [
     guardianEmail: "ethan.wright@example.com",
     guardianPhone: "+61390234567",
     status: "",
-    grades: { Math: 85, English: 88, Science: 79, History: 90, Arts: 86 },
+    grades: { Math: 56, English: 61, Science: 59, History: 63, Arts: 66 },
     attendance: { present: 21, late: 2, absent: 2 },
   },
   {
@@ -362,7 +362,7 @@ export const mockStudents: Student[] = [
     guardianEmail: "maria.gomez@example.com",
     guardianPhone: "+573105678234",
     status: "",
-    grades: { Math: 78, English: 81, Science: 89, History: 85, Arts: 80 },
+    grades: { Math: 43, English: 48, Science: 45, History: 51, Arts: 53 },
     attendance: { present: 22, late: 1, absent: 2 },
   },
   {
@@ -375,7 +375,7 @@ export const mockStudents: Student[] = [
     guardianEmail: "liam.white@example.com",
     guardianPhone: "212-555-0345",
     status: "",
-    grades: { Math: 80, English: 83, Science: 85, History: 88, Arts: 77 },
+    grades: { Math: 58, English: 63, Science: 61, History: 65, Arts: 68 },
     attendance: { present: 23, late: 1, absent: 1 },
   },
   {
@@ -388,7 +388,7 @@ export const mockStudents: Student[] = [
     guardianEmail: "emily.turner@example.com",
     guardianPhone: "02084865372",
     status: "",
-    grades: { Math: 90, English: 89, Science: 84, History: 82, Arts: 88 },
+    grades: { Math: 83, English: 88, Science: 91, History: 93, Arts: 85 },
     attendance: { present: 20, late: 3, absent: 2 },
   },
   {
@@ -401,7 +401,7 @@ export const mockStudents: Student[] = [
     guardianEmail: "fatimah.ibrahim@example.com",
     guardianPhone: "+2347023456789",
     status: "",
-    grades: { Math: 92, English: 85, Science: 91, History: 84, Arts: 89 },
+    grades: { Math: 62, English: 67, Science: 57, History: 72, Arts: 77 },
     attendance: { present: 21, late: 2, absent: 2 },
   },
   {
@@ -414,7 +414,7 @@ export const mockStudents: Student[] = [
     guardianEmail: "musa.bello@example.com",
     guardianPhone: "+2348098765432",
     status: "",
-    grades: { Math: 89, English: 82, Science: 87, History: 83, Arts: 91 },
+    grades: { Math: 57, English: 62, Science: 60, History: 64, Arts: 67 },
     attendance: { present: 22, late: 1, absent: 2 },
   },
   {
@@ -427,7 +427,7 @@ export const mockStudents: Student[] = [
     guardianEmail: "jacob.thomas@example.com",
     guardianPhone: "619-555-0167",
     status: "",
-    grades: { Math: 88, English: 91, Science: 85, History: 80, Arts: 82 },
+    grades: { Math: 70, English: 75, Science: 65, History: 80, Arts: 85 },
     attendance: { present: 23, late: 1, absent: 1 },
   },
   {
@@ -440,7 +440,7 @@ export const mockStudents: Student[] = [
     guardianEmail: "sophie.wang@example.com",
     guardianPhone: "+6561334678",
     status: "",
-    grades: { Math: 87, English: 89, Science: 90, History: 85, Arts: 84 },
+    grades: { Math: 53, English: 58, Science: 56, History: 60, Arts: 63 },
     attendance: { present: 20, late: 3, absent: 2 },
   },
   {
@@ -453,7 +453,7 @@ export const mockStudents: Student[] = [
     guardianEmail: "haruto.suzuki@example.com",
     guardianPhone: "+8134576389",
     status: "",
-    grades: { Math: 92, English: 88, Science: 91, History: 89, Arts: 90 },
+    grades: { Math: 66, English: 71, Science: 61, History: 76, Arts: 81 },
     attendance: { present: 21, late: 2, absent: 2 },
   },
 ];

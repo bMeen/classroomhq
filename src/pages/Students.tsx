@@ -8,7 +8,7 @@ function Students() {
     <div>
       <SubHeading
         heading="Student Directory"
-        paragraph="Easily manage your student roster from this page. You can view, add, edit, or remove student profiles and keep track of key information like enrollment status and contact details."
+        paragraph="Easily manage your class roster. View, add, edit, or delete student profiles and access key details like enrollment status and contact information."
       />
 
       <TableOperations />
@@ -17,5 +17,4 @@ function Students() {
     </div>
   );
 }
-
 export default Students;

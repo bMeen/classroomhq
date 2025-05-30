@@ -3,19 +3,22 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     fontFamily: {
-      sans: ["Inter", "sans-serif"],
+      sans: ["Rubik", "sans-serif"],
       logo: ["Rubik Doodle Shadow", "system-ui"],
     },
     extend: {
       colors: {
-        primary: "#1d1c1a",
-        "primary-hover": "#3f3e3a",
+        primary: "var(--primary)",
+        "primary-hover": "var(--primary-hover)",
+        "text-primary": "#E0E0E6",
+        "text-secondary": "#111827",
         muted: "#6B7280",
-        "color-present": "#36D399",
-        "color-late": "#FBBD23",
-        "color-absent": "#F87272",
+        "color-present": "#1E8E70",
+        "color-late": "#B8860B",
+        "color-absent": "#C05050",
       },
     },
   },
   plugins: [],
 };
+//#27274c

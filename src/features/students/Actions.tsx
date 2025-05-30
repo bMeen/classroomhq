@@ -10,13 +10,13 @@ function Actions({ id }: { id: string }) {
   return (
     <div className="flex gap-3">
       <div onClick={() => navigate(`/student/${id}`)}>
-        <Eye className="text-green-600" />
+        <Eye className="text-color-present" />
       </div>
 
       <div>
         <Modal>
           <Modal.Open opens="edit">
-            <UserPen className="text-blue-600" />
+            <UserPen className="text-color-late" />
           </Modal.Open>
           <Modal.Window name="edit">
             <StudentForm id={id} />
@@ -27,7 +27,7 @@ function Actions({ id }: { id: string }) {
       <div>
         <Modal>
           <Modal.Open opens="delete">
-            <Trash2 className="text-red-600" />
+            <Trash2 className="text-color-absent" />
           </Modal.Open>
           <Modal.Window name="delete">
             <DeleteStudent id={id} />

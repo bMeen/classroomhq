@@ -6,7 +6,6 @@ export const columns: ColumnDef<Student>[] = [
   {
     accessorKey: "fullName",
     header: "Name",
-    enableSorting: false,
   },
   {
     accessorKey: "guardianName",

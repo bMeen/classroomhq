@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow&display=swap");
 
 @tailwind base;
@@ -11,8 +11,6 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-
-  /* color: #fafafa; */
 }
 
 *::-webkit-scrollbar {
@@ -20,15 +18,19 @@
 }
 
 * {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 :root {
-  --primary: #161717; /* Blue-500 */
-  --primary-hover: #ffffff29; /* Blue-600 */
+  --primary: #2b2d42;
+  --primary-hover: #3a3c5a;
   --backdrop-color: rgba(0, 0, 0, 0.1);
   --shadow-md: 0px 0.6rem 2.4rem rgba(0, 0, 0, 0.06);
+}
+
+body {
+  @apply text-text-secondary;
 }
 
 .modal {
@@ -59,7 +61,7 @@
 
 @layer base {
   table {
-    @apply w-full border text-gray-900;
+    @apply w-full border border-primary;
   }
 
   tr {
@@ -72,7 +74,11 @@
   }
 
   th {
-    @apply bg-primary text-left font-normal text-white;
+    @apply text-text-primary bg-primary text-left font-normal;
+  }
+
+  td {
+    @apply text-primary;
   }
 
   label {
@@ -81,31 +87,6 @@
 
   input,
   select {
-    @apply rounded-md border-[1px] border-gray-500 bg-white px-3 py-2 text-sm focus:outline-none focus:ring-0 md:text-base;
+    @apply rounded-md border-[1px] border-[#3A3C5A] bg-transparent px-3 py-2 text-sm text-primary focus:outline-none focus:ring-0 md:text-base;
   }
 }
-
-/* #3B82F6 (Blue-500)	Trustworthy, great for buttons/headers
-Primary Hover	#2563EB (Blue-600)	Slightly darker for hover effects
-Accent	#FACC15 (Yellow-400)	For highlights, alerts, and charts
-Background	#F9FAFB (Gray-50)	Soft white background
-Surface	#FFFFFF	For cards and modals
-Border	#E5E7EB (Gray-200)	Light borders
-Text Primary	#111827 (Gray-900)	Dark, readable text
-Text Muted	#6B7280 (Gray-500) */
-
-/* 
-text-xl font-semibold for section headers
-
-text-base font-medium for content
-
-text-sm text-gray-500 for labels, muted text
-*/
-
-/* 
-secondary: "#FFE66D",
-        accent: "#6BCB77",
-        neutral: "#4D4C7D",
-        base100: "#F9F9F9",
-        info: "#3ABFF8",
-*/
