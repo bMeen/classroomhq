@@ -1,46 +1,57 @@
+import { lazy, Suspense } from "react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Login from "./pages/Login";
-import Dashboard from "./pages/Dashboard";
 import AppLayout from "./components/AppLayout";
-import Students from "./pages/Students";
-import Attendance from "./pages/Attendance";
-import Grades from "./pages/Grades";
-import Student from "./pages/Student";
-import Details from "./features/student/Details";
-import Grade from "./features/student/Grade";
-import Records from "./features/student/Records";
-import { AuthProvider } from "./context/AuthContext";
-import { StudentsProvider } from "./context/StudentContext";
 import ProtectedRoute from "./components/ProtectedRoute";
+import { StudentsProvider } from "./context/StudentContext";
+import { AuthProvider } from "./context/AuthContext";
+
+const Dashboard = lazy(() => import("./pages/Dashboard"));
+const Students = lazy(() => import("./pages/Students"));
+const Attendance = lazy(() => import("./pages/Attendance"));
+const Grades = lazy(() => import("./pages/Grades"));
+const Student = lazy(() => import("./pages/Student"));
+const Details = lazy(() => import("./features/student/Details"));
+const Grade = lazy(() => import("./features/student/Grade"));
+const Records = lazy(() => import("./features/student/Records"));
+const PageNotFound = lazy(() => import("./pages/PageNotFound"));
+
+import Loading from "./components/Loading";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
     <AuthProvider>
       <StudentsProvider>
         <BrowserRouter>
-          <Routes>
-            <Route path="login" element={<Login />} />
-            <Route
-              element={
-                <ProtectedRoute>
-                  <AppLayout />
-                </ProtectedRoute>
-              }
-            >
-              <Route index element={<Navigate replace to="dashboard" />} />
-              <Route path="dashboard" element={<Dashboard />} />
-              <Route path="students" element={<Students />} />
-              <Route path="attendance" element={<Attendance />} />
-              <Route path="grades" element={<Grades />} />
-              <Route path="student/:id" element={<Student />}>
-                <Route index element={<Navigate replace to="details" />} />
-                <Route path="details" element={<Details />} />
-                <Route path="grade" element={<Grade />} />
-                <Route path="records" element={<Records />} />
+          <Suspense fallback={<Loading />}>
+            <Routes>
+              <Route path="login" element={<Login />} />
+              <Route
+                element={
+                  <ProtectedRoute>
+                    <AppLayout />
+                  </ProtectedRoute>
+                }
+              >
+                <Route index element={<Navigate replace to="dashboard" />} />
+                <Route path="dashboard" element={<Dashboard />} />
+                <Route path="students" element={<Students />} />
+                <Route path="attendance" element={<Attendance />} />
+                <Route path="grades" element={<Grades />} />
+                <Route path="student/:id" element={<Student />}>
+                  <Route index element={<Navigate replace to="details" />} />
+                  <Route path="details" element={<Details />} />
+                  <Route path="grade" element={<Grade />} />
+                  <Route path="records" element={<Records />} />
+                </Route>
               </Route>
-            </Route>
-          </Routes>
+              <Route path="*" element={<PageNotFound />} />
+            </Routes>
+          </Suspense>
         </BrowserRouter>
+
+        <Toaster />
       </StudentsProvider>
     </AuthProvider>
   );

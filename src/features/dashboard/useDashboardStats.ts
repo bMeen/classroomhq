@@ -6,11 +6,11 @@
 //
 
 import { useStudentsContext } from "../../context/StudentContext";
-import { Options } from "../../types";
 
 export default function useDashboardStats() {
   const {
     state: { mockStudents },
+    totalGrades,
   } = useStudentsContext();
 
   const subjects = Object.keys(mockStudents[0].grades);
@@ -18,17 +18,21 @@ export default function useDashboardStats() {
   const totalStudents = mockStudents.length;
   const totalSubjects = subjects.length;
 
-  const subjectAverages = subjects.reduce((acc, subject) => {
-    const totalScore = mockStudents.reduce(
-      (sum, student) => sum + student.grades[subject],
-      0,
-    );
-    acc.push({
-      label: subject,
-      value: (totalScore / totalStudents).toFixed(2),
-    });
-    return acc;
-  }, [] as Options[]);
+  const subjectAverages = subjects.reduce(
+    (acc, subject) => {
+      const totalScore = mockStudents.reduce(
+        (sum, student) => sum + student.grades[subject],
+        0,
+      );
+      acc.push({
+        name: subject,
+        value: totalScore / totalStudents,
+        /* value: Math.round(totalScore / totalStudents), */
+      });
+      return acc;
+    },
+    [] as { name: string; value: number }[],
+  );
 
   const overallAverage = (
     mockStudents.reduce((sum, student) => {
@@ -42,6 +46,14 @@ export default function useDashboardStats() {
   const topPerformingSubject = subjectAverages.reduce((previous, current) => {
     return current.value > previous.value ? current : previous;
   }, subjectAverages[0]);
+
+  const lowPerformingSubject = subjectAverages.reduce((previous, current) => {
+    return current.value < previous.value ? current : previous;
+  }, subjectAverages[0]);
+
+  const belowThreshold = totalGrades.filter(
+    (student) => student.average_score < 50,
+  );
 
   const totalAttendance = mockStudents.reduce(
     (totals, student) => {
@@ -66,11 +78,14 @@ export default function useDashboardStats() {
   );
 
   const attendanceRates = Object.entries(totalAttendance).map(
-    ([label, count]) => ({
-      label,
-      value: `${((count / totalAttendanceEntries) * 100).toFixed(2)}%`,
+    ([name, count]) => ({
+      name: name.toUpperCase(),
+      value: (count / totalAttendanceEntries) * 100,
+      /* value: Math.round((count / totalAttendanceEntries) * 100), */
     }),
   );
+
+  console.log(subjectAverages, attendanceRates);
 
   return {
     totalStudents,
@@ -79,5 +94,8 @@ export default function useDashboardStats() {
     topPerformingSubject,
     overallAverage,
     attendanceRates,
+    lowPerformingSubject,
+    belowThreshold,
+    subjects,
   };
 }

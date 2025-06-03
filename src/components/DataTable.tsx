@@ -7,6 +7,7 @@ import {
   PaginationState,
   SortingState,
   useReactTable,
+  VisibilityState,
 } from "@tanstack/react-table";
 import Button from "./Button";
 import {
@@ -20,14 +21,19 @@ import { useEffect, useState } from "react";
 type TableProps<T> = {
   columns: ColumnDef<T>[];
   data: T[];
+  hideColumns?: VisibilityState;
 };
 
-function DataTable<T>({ columns, data }: TableProps<T>) {
+function DataTable<T>({ columns, data, hideColumns }: TableProps<T>) {
   const [sorting, setSorting] = useState<SortingState>([]);
   const [pagination, setPagination] = useState<PaginationState>({
     pageIndex: 0,
     pageSize: 10,
   });
+
+  const [columnVisibility, setColumnVisibility] = useState<VisibilityState>(
+    hideColumns ?? {},
+  );
 
   useEffect(() => {
     const totalPages = Math.ceil(data.length / pagination.pageSize);
@@ -50,7 +56,9 @@ function DataTable<T>({ columns, data }: TableProps<T>) {
     state: {
       sorting,
       pagination,
+      columnVisibility,
     },
+    onColumnVisibilityChange: setColumnVisibility,
     onSortingChange: setSorting,
     onPaginationChange: setPagination,
   });

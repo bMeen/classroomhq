@@ -20,7 +20,7 @@ function Confirmation({
     onCloseModal?.();
   };
   return (
-    <div className="text-slate-500">
+    <div>
       <h3 className="text-lg font-medium md:text-xl">{title}</h3>
       <p className="text-sm">{description}</p>
 

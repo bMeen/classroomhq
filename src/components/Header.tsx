@@ -1,6 +1,8 @@
 import { LogOut } from "lucide-react";
 import SearchQuery from "./SearchQuery";
 import { useAuthContext } from "../context/AuthContext";
+import Modal from "./Modal";
+import Confirmation from "./Confirmation";
 
 function Header() {
   const { logout } = useAuthContext();
@@ -14,11 +16,20 @@ function Header() {
 
         <SearchQuery />
 
-        <div
-          className="rounded-full p-1.5 hover:bg-gray-100 md:hidden md:p-3"
-          onClick={logout}
-        >
-          <LogOut className="cursor-pointer" />
+        <div className="rounded-full p-1.5 hover:bg-gray-100 md:hidden md:p-3">
+          <Modal>
+            <Modal.Open opens="logout">
+              <LogOut className="cursor-pointer" size={18} />
+            </Modal.Open>
+            <Modal.Window name="logout">
+              <Confirmation
+                title="Log Out"
+                description="Are you sure you want to log out of your account?"
+                type="Logout"
+                action={logout}
+              />
+            </Modal.Window>
+          </Modal>
         </div>
       </div>
     </div>

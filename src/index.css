@@ -61,7 +61,7 @@ body {
 
 @layer base {
   table {
-    @apply w-full border border-primary;
+    @apply w-full border border-primary text-sm md:text-base;
   }
 
   tr {
@@ -70,7 +70,7 @@ body {
 
   th,
   td {
-    @apply p-4;
+    @apply p-2 md:p-4;
   }
 
   th {

@@ -16,7 +16,7 @@ function DeleteStudent({
   };
 
   return (
-    <div className="text-slate-500">
+    <div>
       <h3 className="text-lg font-medium md:text-xl">Delete</h3>
       <p className="text-sm">Are you sure you want to delete this student?</p>
 

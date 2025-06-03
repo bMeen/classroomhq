@@ -8,7 +8,7 @@ function Actions({ id }: { id: string }) {
   const navigate = useNavigate();
 
   return (
-    <div className="flex gap-3">
+    <div className="flex gap-1">
       <div onClick={() => navigate(`/student/${id}`)}>
         <Eye className="text-color-present" />
       </div>
