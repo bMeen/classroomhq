@@ -5,7 +5,7 @@ function Dashboard() {
   return (
     <div>
       <SubHeading
-        heading="Welcome to ClassroomHQ Dashboard"
+        heading="Welcome to ClassroomHQ"
         paragraph="Get an overview of your classroom at a glance. This dashboard provides quick insights into student performance, attendance rates, and class activity to help you stay informed and organized."
       />
 

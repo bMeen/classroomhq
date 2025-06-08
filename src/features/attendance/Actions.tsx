@@ -1,6 +1,8 @@
+import toast from "react-hot-toast";
 import Button from "../../components/Button";
 import { useStudentsContext } from "../../context/StudentContext";
 import { Status } from "../../types";
+import CustomToast from "./CustomToast";
 
 type ActionType = {
   type: Status;
@@ -25,6 +27,14 @@ const ActionTypes: ActionType[] = [
 function Actions({ id }: { id: string }) {
   const { dispatch } = useStudentsContext();
 
+  const handleChangeStatus = (type: Status) => {
+    dispatch({
+      type: "change-status",
+      payload: { id, status: type },
+    });
+    toast.custom((t) => <CustomToast t={t} type={type} />);
+  };
+
   return (
     <div className="flex gap-3">
       {ActionTypes.map((action) => {
@@ -33,12 +43,7 @@ function Actions({ id }: { id: string }) {
             type="action"
             key={action.type}
             className={`capitalize ${action.class}`}
-            onClick={() =>
-              dispatch({
-                type: "change-status",
-                payload: { id, status: action.type },
-              })
-            }
+            onClick={() => handleChangeStatus(action.type)}
           >
             {action.type}
           </Button>

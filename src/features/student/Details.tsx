@@ -4,6 +4,7 @@ import FormInput from "../../ui/FormInput";
 import { useStudentsContext } from "../../context/StudentContext";
 import { useForm } from "react-hook-form";
 import { FormValues } from "../../types";
+import { motion } from "motion/react";
 
 function Details() {
   const {
@@ -30,7 +31,11 @@ function Details() {
 
   return (
     <form>
-      <div className="w-full max-w-lg space-y-5">
+      <motion.div
+        exit={{ opacity: 0, x: -30 }}
+        transition={{ duration: 0.5 }}
+        className="w-full max-w-lg space-y-5"
+      >
         <FormRow>
           <FormInput id="fullName" label="Full Name">
             <input
@@ -110,7 +115,7 @@ function Details() {
             />
           </FormInput>
         </FormRow>
-      </div>
+      </motion.div>
     </form>
   );
 }

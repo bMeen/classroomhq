@@ -1,5 +1,5 @@
 import { lazy, Suspense } from "react";
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route } from "react-router-dom";
 import Login from "./pages/Login";
 import AppLayout from "./components/AppLayout";
 import ProtectedRoute from "./components/ProtectedRoute";
@@ -18,6 +18,7 @@ const PageNotFound = lazy(() => import("./pages/PageNotFound"));
 
 import Loading from "./components/Loading";
 import { Toaster } from "react-hot-toast";
+import AnimateRoutes from "./components/AnimateRoutes";
 
 function App() {
   return (
@@ -25,7 +26,7 @@ function App() {
       <StudentsProvider>
         <BrowserRouter>
           <Suspense fallback={<Loading />}>
-            <Routes>
+            <AnimateRoutes>
               <Route path="login" element={<Login />} />
               <Route
                 element={
@@ -47,11 +48,11 @@ function App() {
                 </Route>
               </Route>
               <Route path="*" element={<PageNotFound />} />
-            </Routes>
+            </AnimateRoutes>
           </Suspense>
         </BrowserRouter>
 
-        <Toaster />
+        <Toaster position="top-center" />
       </StudentsProvider>
     </AuthProvider>
   );

@@ -1,3 +1,4 @@
+import toast from "react-hot-toast";
 import Button from "../../components/Button";
 import { useStudentsContext } from "../../context/StudentContext";
 
@@ -12,6 +13,7 @@ function DeleteStudent({
 
   const handleRemove = () => {
     dispatch({ type: "remove-student", payload: { id } });
+    toast.success("Student deleted successfully");
     onCloseModal?.();
   };
 

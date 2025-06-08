@@ -3,6 +3,7 @@ import Button from "../../components/Button";
 import { useStudentsContext } from "../../context/StudentContext";
 import Modal from "../../components/Modal";
 import Confirmation from "../../components/Confirmation";
+import toast from "react-hot-toast";
 
 function AddNewSubject() {
   const [subject, setSubject] = useState("");
@@ -10,6 +11,7 @@ function AddNewSubject() {
 
   const handleAddSubject = () => {
     dispatch({ type: "new-subject", payload: { subject } });
+    toast.success("New subject added successfully");
     setSubject("");
   };
 
@@ -25,13 +27,16 @@ function AddNewSubject() {
       />
       <Modal>
         <Modal.Open opens="new-subject">
-          <Button
-            disabled={!subject}
-            className="absolute right-2 top-1/2 -translate-y-1/2 px-[12px] py-[3px] font-normal disabled:cursor-not-allowed"
-          >
-            Add
-          </Button>
+          <div className="absolute right-2 top-1/2 -translate-y-1/2 font-normal">
+            <Button
+              disabled={!subject}
+              className="px-[12px] py-[3px] disabled:cursor-not-allowed disabled:opacity-50"
+            >
+              Add
+            </Button>
+          </div>
         </Modal.Open>
+
         <Modal.Window name="new-subject">
           <Confirmation
             title="Add Subject"

@@ -3,6 +3,8 @@ import { ModalCOntextType } from "../types";
 import { X } from "lucide-react";
 import { createPortal } from "react-dom";
 import { useOutsideClick } from "../lib/useOutsideClick";
+import { AnimatePresence, motion } from "motion/react";
+import { modalVariants } from "../lib/constants";
 
 const ModalContext = createContext<ModalCOntextType>({} as ModalCOntextType);
 
@@ -45,22 +47,37 @@ function Window({
   const { openName, close } = useContext(ModalContext);
   const ref = useOutsideClick<HTMLDivElement>(close);
 
-  if (name !== openName) return null;
+  //if (name !== openName) return null;
 
   return createPortal(
-    <div className="overlay">
-      <div
-        className="modal flex flex-col items-end gap-2"
-        ref={ref}
-        onClick={(e) => e.target}
-      >
-        <button onClick={close}>
-          <X />
-        </button>
+    <AnimatePresence>
+      {openName === name && (
+        <div className="overlay">
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            variants={modalVariants}
+            transition={{ duration: 0.3 }}
+            className="modal"
+            ref={ref}
+            onClick={(e) => e.target}
+          >
+            <div className="flex flex-col items-end gap-2">
+              <motion.button
+                transition={{ type: "tween", duration: 0.2 }}
+                whileTap={{ scale: 0.85 }}
+                onClick={close}
+              >
+                <X />
+              </motion.button>
 
-        <div>{cloneElement(children, { onCloseModal: close })}</div>
-      </div>
-    </div>,
+              <div>{cloneElement(children, { onCloseModal: close })}</div>
+            </div>
+          </motion.div>
+        </div>
+      )}
+    </AnimatePresence>,
     document.body,
   );
 }

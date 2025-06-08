@@ -25,6 +25,7 @@
 :root {
   --primary: #2b2d42;
   --primary-hover: #3a3c5a;
+  --text-primary: #e0e0e6;
   --backdrop-color: rgba(0, 0, 0, 0.1);
   --shadow-md: 0px 0.6rem 2.4rem rgba(0, 0, 0, 0.06);
 }

@@ -8,6 +8,7 @@ import { useStudentsContext } from "../../context/StudentContext";
 import { generateStudentId } from "../../lib/utils";
 import { useNavigate } from "react-router-dom";
 import SubHeading from "../../components/SubHeading";
+import toast from "react-hot-toast";
 
 function StudentForm({
   id,
@@ -40,6 +41,7 @@ function StudentForm({
       resolver: yupResolver(schema),
       defaultValues: isEditSession ? editValues : {},
     });
+
   const { errors, dirtyFields } = formState;
 
   const onSubmit = (data: FormValues) => {
@@ -51,8 +53,9 @@ function StudentForm({
         return acc;
       }, {} as Partial<FormValues>);
 
-      navigate(`/student/${id}`);
       dispatch({ type: "update-student", payload: { id: id!, updates } });
+      toast.success("Student details editted successfully");
+      navigate(`/student/${id}`);
     } else {
       const id = generateStudentId(state.mockStudents);
       const status = "present" as Status;
@@ -64,9 +67,15 @@ function StudentForm({
       }, {} as GradeScores);
       const newStudent = { ...data, id, status, attendance, grades };
       dispatch({ type: "add-student", payload: newStudent });
+      toast.success("New student added successfully");
       reset();
       navigate(`/student/${id}`);
     }
+    onCloseModal?.();
+  };
+
+  const handleOnClick = (e?: React.MouseEvent<HTMLButtonElement>) => {
+    e?.preventDefault();
     onCloseModal?.();
   };
 
@@ -172,7 +181,7 @@ function StudentForm({
         </div>
 
         <div className="mt-5 flex justify-end gap-3 lg:mt-10">
-          <Button type="outline" onClick={() => onCloseModal?.()}>
+          <Button type="outline" onClick={handleOnClick}>
             Cancel
           </Button>
           {isEditSession ? (

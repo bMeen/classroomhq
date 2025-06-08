@@ -3,6 +3,7 @@ import { useStudentsContext } from "../../context/StudentContext";
 import { useCustomColumns } from "../grades/columns";
 import DataTable from "../../components/DataTable";
 import TableContainer from "../../ui/TableContainer";
+import { motion } from "motion/react";
 
 function Grade() {
   const { id } = useParams();
@@ -16,9 +17,11 @@ function Grade() {
 
   if (!currentStudentGrades) return <p>Student data not available</p>;
   return (
-    <TableContainer className="w-full max-w-6xl">
-      <DataTable columns={columns} data={[currentStudentGrades]} />
-    </TableContainer>
+    <motion.div exit={{ opacity: 0, x: -30 }} transition={{ duration: 0.5 }}>
+      <TableContainer className="w-full max-w-6xl">
+        <DataTable columns={columns} data={[currentStudentGrades]} />
+      </TableContainer>
+    </motion.div>
   );
 }
 

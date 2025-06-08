@@ -7,6 +7,7 @@ import FormRow from "../../ui/FormRow";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import SubHeading from "../../components/SubHeading";
+import toast from "react-hot-toast";
 
 function EditGrade({
   id,
@@ -55,6 +56,7 @@ function EditGrade({
       return acc;
     }, {} as Partial<GradeScores>);
     dispatch({ type: "update-grade", payload: { id, updates } });
+    toast.success("Grade details successfully editted");
   }
 
   return (

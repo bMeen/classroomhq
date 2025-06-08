@@ -15,6 +15,7 @@ function TableOperations() {
               <p>Add New Student</p>
             </Button>
           </Modal.Open>
+
           <Modal.Window name="form">
             <StudentForm />
           </Modal.Window>

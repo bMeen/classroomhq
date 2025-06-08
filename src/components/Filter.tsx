@@ -1,5 +1,6 @@
 import { useSearchParams } from "react-router-dom";
 import { Options } from "../types";
+import { motion } from "motion/react";
 
 function Filter({ field, options }: { field: string; options: Options[] }) {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -13,19 +14,25 @@ function Filter({ field, options }: { field: string; options: Options[] }) {
   return (
     <div className="my-3 inline-flex gap-1 rounded-md border-[1px] border-primary p-1">
       {options.map(({ label, value }) => (
-        <button
-          className={`rounded-md px-3 py-1 text-sm transition-all duration-75 md:text-base ${currentField === value ? "text-text-primary cursor-not-allowed bg-primary" : "cursor-pointer bg-none text-primary"}`}
+        <motion.button
+          animate={{
+            backgroundColor:
+              currentField === value ? "var(--primary)" : "transparent",
+            color:
+              currentField === value ? "var(--text-primary)" : "var(--primary)",
+          }}
+          className={`rounded-md px-3 py-1 text-sm md:text-base ${currentField === value ? "cursor-not-allowed" : "cursor-pointer"}`}
+          transition={{ type: "tween", duration: 0.3 }}
+          whileTap={{ scale: 0.95 }}
           key={value}
           onClick={() => handleFilter(value as string)}
           disabled={currentField === value}
         >
           {label}
-        </button>
+        </motion.button>
       ))}
     </div>
   );
 }
 
 export default Filter;
-
-/*     if (searchParams.get("page")) searchParams.set("page", 1); */

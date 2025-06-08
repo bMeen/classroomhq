@@ -17,6 +17,7 @@ import {
   ChevronRight,
 } from "lucide-react";
 import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 
 type TableProps<T> = {
   columns: ColumnDef<T>[];
@@ -25,6 +26,8 @@ type TableProps<T> = {
 };
 
 function DataTable<T>({ columns, data, hideColumns }: TableProps<T>) {
+  const [searchParams] = useSearchParams();
+  const filter = searchParams.toString();
   const [sorting, setSorting] = useState<SortingState>([]);
   const [pagination, setPagination] = useState<PaginationState>({
     pageIndex: 0,
@@ -45,6 +48,13 @@ function DataTable<T>({ columns, data, hideColumns }: TableProps<T>) {
       }));
     }
   }, [data.length, pagination]);
+
+  useEffect(() => {
+    setPagination((prev) => ({
+      ...prev,
+      pageIndex: 0,
+    }));
+  }, [filter]);
 
   const table = useReactTable({
     columns,
@@ -111,6 +121,7 @@ function DataTable<T>({ columns, data, hideColumns }: TableProps<T>) {
               </tr>
             );
           })}
+
           {!data.length && (
             <tr>
               <td colSpan={columns.length + 1}>

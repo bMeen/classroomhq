@@ -1,3 +1,5 @@
+import { motion } from "motion/react";
+
 type ButtonType =
   | "default"
   | "success"
@@ -11,7 +13,7 @@ type ButtonProps = {
   className?: string;
   children: React.ReactNode;
   disabled?: boolean;
-  onClick?: () => void;
+  onClick?: (e?: React.MouseEvent<HTMLButtonElement>) => void;
 };
 
 const base = "flex py-2 px-4 text-sm font-medium items-center gap-2";
@@ -42,13 +44,15 @@ function Button({
   disabled,
 }: ButtonProps) {
   return (
-    <button
+    <motion.button
+      transition={{ type: "tween", duration: 0.2 }}
+      whileTap={{ scale: 0.85 }}
       className={`${styles[type]} ${className}`}
       onClick={onClick}
       disabled={disabled}
     >
       {children}
-    </button>
+    </motion.button>
   );
 }
 

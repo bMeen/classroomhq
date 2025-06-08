@@ -1,6 +1,7 @@
 import { createContext, useContext } from "react";
 import { AuthActions, AuthContextType, AuthState } from "../types";
 import { useLocalStorageReducer } from "../lib/useLocalStorageReducer";
+import toast from "react-hot-toast";
 
 const admin = {
   username: "admin",
@@ -48,8 +49,9 @@ function AuthProvider({ children }: { children: React.ReactNode }) {
   function login(username: string, password: string) {
     if (username === admin.username && password === admin.password) {
       dispatch({ type: "login", payload: { username, password } });
+      toast.success("Login Successful");
     } else {
-      alert("Invalid credentials");
+      toast.error("Invalid credentials");
     }
   }
 

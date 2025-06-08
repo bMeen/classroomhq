@@ -23,6 +23,7 @@ function AttendanceChart() {
             nameKey="name"
             cx="50%"
             cy="50%"
+            style={{ outline: "none" }}
           >
             {attendanceRates.map((_, index) => (
               <Cell key={index} fill={COLORS[index % COLORS.length]} />

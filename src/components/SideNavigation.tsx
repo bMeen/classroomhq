@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 import { useAuthContext } from "../context/AuthContext";
 import Modal from "./Modal";
 import Confirmation from "./Confirmation";
+import toast from "react-hot-toast";
 
 const navigationItems: NavItems[] = [
   {
@@ -62,7 +63,10 @@ function SideNavigation() {
                 title="Log Out"
                 description="Are you sure you want to log out of your account?"
                 type="Logout"
-                action={logout}
+                action={() => {
+                  logout();
+                  toast.success("Logged out successfully");
+                }}
               />
             </Modal.Window>
           </Modal>

@@ -1,10 +1,15 @@
 import LoginForm from "../components/LoginForm";
+import AnimatePage from "../ui/AnimatePage";
+import { xAnimations } from "../lib/constants";
 
 function Login() {
   return (
-    <div className="grid h-screen place-items-center">
+    <AnimatePage
+      animations={xAnimations}
+      className="grid h-screen place-items-center"
+    >
       <LoginForm />
-    </div>
+    </AnimatePage>
   );
 }
 

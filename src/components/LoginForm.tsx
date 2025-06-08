@@ -66,7 +66,7 @@ function LoginForm() {
         </div>
 
         <Button
-          className="mx-auto items-center disabled:cursor-not-allowed"
+          className="mx-auto items-center disabled:cursor-not-allowed disabled:opacity-50"
           disabled={!username || !password}
         >
           Login
