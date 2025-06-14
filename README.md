@@ -3,14 +3,12 @@
 ClassroomHQ is a modern, sleek classroom management dashboard built for teachers.  
 It helps manage student records, track grades and attendance, and visualize class performance — all in one place.
 
-> ⚠️ This project is a **Work In Progress (WIP)** and actively being developed.
-
 ---
 
 ## 🚀 Features
 
 - 👥 Student Management (Add / Edit / Delete)
-- 📊 Grade Tracking for 5 core subjects
+- 📊 Grade Tracking for 5+ core subjects
 - ✅ Attendance Monitoring (Present / Late / Absent)
 - 📈 Dashboard with visual insights
 - 🔍 Search & Filter students
