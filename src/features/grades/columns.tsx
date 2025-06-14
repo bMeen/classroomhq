@@ -3,6 +3,7 @@ import { DynamicSubject, Grade } from "../../types";
 import { UserPen } from "lucide-react";
 import Modal from "../../components/Modal";
 import EditGrade from "./EditGrade";
+import GradeHeader from "./gradeHeader";
 
 export function useCustomColumns(
   subjects: DynamicSubject[],
@@ -13,7 +14,8 @@ export function useCustomColumns(
       header: "Name",
     },
     ...subjects.map((subject) => ({
-      header: () => <span className="capitalize">{subject}</span>,
+      //header: () => <span className="capitalize">{subject}</span>,
+      header: () => <GradeHeader subject={subject} />,
       id: subject,
       accessorFn: (row: Grade) => row.grades[subject],
     })),

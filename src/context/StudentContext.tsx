@@ -101,6 +101,20 @@ const studentsReducer = (
         })),
       };
 
+    case "remove-subject":
+      return {
+        ...state,
+        mockStudents: state.mockStudents.map((student) => {
+          // eslint-disable-next-line @typescript-eslint/no-unused-vars
+          const { [action.payload.subject]: _, ...remainingGrades } =
+            student.grades;
+          return {
+            ...student,
+            grades: remainingGrades,
+          };
+        }),
+      };
+
     default:
       return state;
   }

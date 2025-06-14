@@ -13,14 +13,14 @@ function DeleteStudent({
 
   const handleRemove = () => {
     dispatch({ type: "remove-student", payload: { id } });
-    toast.success("Student deleted successfully");
+    toast.success("Student removed successfully");
     onCloseModal?.();
   };
 
   return (
     <div>
-      <h3 className="text-lg font-medium md:text-xl">Delete</h3>
-      <p className="text-sm">Are you sure you want to delete this student?</p>
+      <h3 className="text-lg font-medium md:text-xl">Remove</h3>
+      <p className="text-sm">Are you sure you want to remove this student?</p>
 
       <div className="mt-5 flex justify-end gap-3 lg:mt-10">
         <Button type="outline" onClick={() => onCloseModal?.()}>

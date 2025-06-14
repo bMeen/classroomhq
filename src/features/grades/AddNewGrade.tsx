@@ -6,13 +6,26 @@ import Confirmation from "../../components/Confirmation";
 import toast from "react-hot-toast";
 
 function AddNewSubject() {
-  const [subject, setSubject] = useState("");
-  const { dispatch } = useStudentsContext();
+  const [input, setInput] = useState("");
+  const {
+    dispatch,
+    state: { mockStudents },
+  } = useStudentsContext();
+
+  const subjects = Object.keys(mockStudents[0].grades);
 
   const handleAddSubject = () => {
+    const subject = input.trim();
+    const exists = subjects.some(
+      (sub) => sub.toLowerCase() === subject.toLowerCase(),
+    );
+
+    if (subject === "") return toast.error("Provide a valid subject");
+    if (exists) return toast.error("Subject already exists");
+
     dispatch({ type: "new-subject", payload: { subject } });
     toast.success("New subject added successfully");
-    setSubject("");
+    setInput("");
   };
 
   return (
@@ -20,16 +33,16 @@ function AddNewSubject() {
       <input
         type="text"
         name="Subject"
-        value={subject}
+        value={input}
         placeholder="Enter a Subject"
         className="w-full rounded-md border border-slate-500 py-2 pl-2 pr-16"
-        onChange={(e) => setSubject(e.target.value)}
+        onChange={(e) => setInput(e.target.value)}
       />
       <Modal>
         <Modal.Open opens="new-subject">
           <div className="absolute right-2 top-1/2 -translate-y-1/2 font-normal">
             <Button
-              disabled={!subject}
+              disabled={!input}
               className="px-[12px] py-[3px] disabled:cursor-not-allowed disabled:opacity-50"
             >
               Add

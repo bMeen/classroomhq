@@ -90,13 +90,21 @@ export type AddNewSubject = {
   };
 };
 
+export type removeSubject = {
+  type: "remove-subject";
+  payload: {
+    subject: string;
+  };
+};
+
 export type Actions =
   | AddStudentAction
   | ChangeStatusAction
   | RemoveStudentAction
   | UpdateStudentAction
   | UpdateGradeAction
-  | AddNewSubject;
+  | AddNewSubject
+  | removeSubject;
 
 export type StudentsContextType = {
   state: StudentsState;

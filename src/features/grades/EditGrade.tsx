@@ -59,6 +59,11 @@ function EditGrade({
     toast.success("Grade details successfully editted");
   }
 
+  const handleOnClick = (e?: React.MouseEvent<HTMLButtonElement>) => {
+    e?.preventDefault();
+    onCloseModal?.();
+  };
+
   return (
     <>
       <SubHeading
@@ -86,7 +91,7 @@ function EditGrade({
           ))}
         </div>
         <div className="mt-5 flex justify-end gap-3 lg:mt-10">
-          <Button type="outline" onClick={() => onCloseModal?.()}>
+          <Button type="outline" onClick={handleOnClick}>
             Cancel
           </Button>
           <Button>Update</Button>
